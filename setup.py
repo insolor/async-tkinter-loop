@@ -10,7 +10,7 @@ test_requires = [
     'pytest-cov'
 ]
 
-setup(name='asynctk',
+setup(name='async-tkinter-wrapper',
       version='0.0.1',
       description='Asynchronous wrapper for tkinter',
       url='https://github.com/insolor/asynctk',
