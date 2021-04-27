@@ -1,5 +1,7 @@
 # async tkinter wrapper
 
+[![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
+
 Asynchronous wrapper for Tk class for tkinter.
 
 Based on:
