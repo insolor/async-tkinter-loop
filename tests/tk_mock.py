@@ -1,4 +1,4 @@
-from asynctk.asynctk import AsyncTkUpdater
+from asynctk import AsyncTkUpdater
 from unittest.mock import Mock
 
 

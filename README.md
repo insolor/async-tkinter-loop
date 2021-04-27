@@ -1,6 +1,6 @@
 # async tkinter wrapper
 
-An example of using asynchronous code with tkinter.
+Asynchronous wrapper for Tk class for tkinter.
 
 Based on:
 
