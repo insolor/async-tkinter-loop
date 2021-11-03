@@ -2,7 +2,34 @@
 
 [![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
 
-Asynchronous wrapper for Tk class for tkinter.
+An implementation of asynchronous `main_loop` for tkinter, the use of which allows using `async` handler functions.
+
+Basic example:
+```python
+import asyncio
+import tkinter as tk
+
+from async_tkinter_loop import async_mainloop, async_command
+
+
+async def counter():
+    i = 0
+    while True:
+        i += 1
+        label['text'] = str(i)
+        await asyncio.sleep(1.0)
+
+
+root = tk.Tk()
+
+label = tk.Label(root)
+label.pack()
+
+tk.Button(root, text="Start", command=async_command(counter)).pack()
+
+async_mainloop(root)
+```
+More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/master/examples) directory.
 
 Based on:
 
