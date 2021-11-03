@@ -36,4 +36,5 @@ button.pack()
 label = tk.Label(root)
 label.pack()
 
-async_mainloop(root)
+if __name__ == "__main__":
+    async_mainloop(root)

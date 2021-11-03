@@ -25,4 +25,5 @@ label.pack()
 
 tk.Button(root, text="Start", command=async_command(counter)).pack()
 
-async_mainloop(root)
+if __name__ == "__main__":
+    async_mainloop(root)

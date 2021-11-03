@@ -33,4 +33,5 @@ button.pack()
 text = tk.Text(root)
 text.pack()
 
-async_mainloop(root)
+if __name__ == "__main__":
+    async_mainloop(root)
