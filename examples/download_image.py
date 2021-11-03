@@ -5,10 +5,13 @@ import aiohttp
 from io import BytesIO
 from PIL import Image, ImageTk
 
-from asynctk import async_mainloop
+from asynctk import async_mainloop, async_command
 
 
-async def fetch_image(url):
+async def load_image(url):
+    button['state'] = 'disabled'
+    label['text'] = 'Loading cat...'
+
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
         if response.status != 200:
@@ -25,15 +28,9 @@ async def fetch_image(url):
 url = "http://thecatapi.com/api/images/get?format=src&type=jpg"
 
 
-def load_image():
-    button['state'] = 'disabled'
-    label['text'] = 'Loading cat...'
-    asyncio.ensure_future(fetch_image(url))
-
-
 root = tk.Tk()
 
-button = tk.Button(root, text='Load a cat', command=load_image)
+button = tk.Button(root, text='Load a cat', command=async_command(load_image, url))
 button.pack()
 
 label = tk.Label(root)

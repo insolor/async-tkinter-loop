@@ -30,11 +30,22 @@ class AsyncTkLoop:
 class AsyncTk(tk.Tk):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self._updater = AsyncTkLoop(self)
+        self._async_loop = AsyncTkLoop(self)
 
-    def mainloop(self):
-        self._updater.mainloop()
+    def mainloop(self, n=None):
+        self._async_loop.mainloop()
 
 
 def async_mainloop(root):
     AsyncTkLoop(root).mainloop()
+
+
+def async_command(command, *args, **kwargs):
+    """
+    Helper function
+    :param command: async function
+    :param *args, **kwargs: parameters which will be passed to the async function
+    :param kwargs:
+    :return: function
+    """
+    return lambda: asyncio.ensure_future(command(*args, **kwargs))

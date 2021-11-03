@@ -7,7 +7,7 @@ to create a non-blocking "infinite" loop.
 import asyncio
 import tkinter as tk
 
-from asynctk import async_mainloop
+from asynctk import async_mainloop, async_command
 
 
 async def counter():
@@ -23,6 +23,6 @@ root = tk.Tk()
 label = tk.Label(root)
 label.pack()
 
-tk.Button(root, text="Start", command=lambda: asyncio.ensure_future(counter())).pack()
+tk.Button(root, text="Start", command=async_command(counter)).pack()
 
 async_mainloop(root)

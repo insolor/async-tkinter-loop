@@ -3,7 +3,7 @@ import tkinter as tk
 
 from functools import partial
 
-from asynctk import async_mainloop
+from asynctk import async_mainloop, async_command
 
 
 def create_child_window(parent):
@@ -18,7 +18,7 @@ def create_child_window(parent):
             label['text'] = str(i)
             await asyncio.sleep(1.0)
     
-    tk.Button(child, text="Start", command=lambda: asyncio.ensure_future(counter())).pack()
+    tk.Button(child, text="Start", command=async_command(counter)).pack()
 
 
 root = tk.Tk()

@@ -1,14 +1,17 @@
 """Based on example from the aiohttp documentation: https://docs.aiohttp.org/en/stable/"""
 
 import tkinter as tk
-import asyncio
 import aiohttp
 
 
-from asynctk import async_mainloop
+from asynctk import async_mainloop, async_command
 
 
-async def fetch():
+async def load_data():
+    text.delete(1.0, tk.END)
+    text.insert(tk.END, "Loading...")
+    button['state'] = 'disabled'
+
     async with aiohttp.ClientSession() as session:
         async with session.get('http://python.org') as response:
             text.delete(1.0, tk.END)
@@ -22,16 +25,9 @@ async def fetch():
             button['state'] = 'normal'
 
 
-def load_data():
-    text.delete(1.0, tk.END)
-    text.insert(tk.END, "Loading...")
-    button['state'] = 'disabled'
-    asyncio.ensure_future(fetch())
-
-
 root = tk.Tk()
 
-button = tk.Button(root, text='Load text', command=load_data)
+button = tk.Button(root, text='Load text', command=async_command(load_data))
 button.pack()
 
 text = tk.Text(root)
