@@ -1,8 +1,7 @@
 import tkinter as tk
-import asyncio
-import aiohttp
-
 from io import BytesIO
+
+import aiohttp
 from PIL import Image, ImageTk
 
 from asynctk import async_mainloop, async_command
