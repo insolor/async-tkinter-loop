@@ -7,7 +7,8 @@ install_requires = [
 test_requires = [
     'pytest',
     'pytest-timeout',
-    'pytest-cov'
+    'pytest-cov',
+    'flake8',
 ]
 
 setup(name='async-tkinter-wrapper',
@@ -19,5 +20,5 @@ setup(name='async-tkinter-wrapper',
       license='MIT',
       packages=find_packages(),
       install_requires=install_requires,
-      test_requires=test_requires,
+      extras_require=dict(test=test_requires),
       zip_safe=True)
