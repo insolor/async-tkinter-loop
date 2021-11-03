@@ -11,10 +11,10 @@ test_requires = [
     'flake8',
 ]
 
-setup(name='async-tkinter-wrapper',
+setup(name='async-tkinter-loop',
       version='0.0.1',
       description='Asynchronous wrapper for tkinter',
-      url='https://github.com/insolor/async-tkinter-wrapper',
+      url='https://github.com/insolor/async-tkinter-loop',
       author='insolor',
       author_email='insolor@gmail.com',
       license='MIT',

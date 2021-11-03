@@ -1,9 +1,8 @@
 import asyncio
 import tkinter as tk
-
 from functools import partial
 
-from asynctk import async_mainloop, async_command
+from async_tkinter_loop import async_mainloop, async_command
 
 
 def create_child_window(parent):

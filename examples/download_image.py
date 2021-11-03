@@ -4,7 +4,7 @@ from io import BytesIO
 import aiohttp
 from PIL import Image, ImageTk
 
-from asynctk import async_mainloop, async_command
+from async_tkinter_loop import async_mainloop, async_command
 
 
 async def load_image(url):

@@ -1,13 +1,13 @@
 """
 There is a simple example of how to do repeatable actions without blocking the GUI.
-Classic tkinter approach is based on the "after" method, but with asynctk it is possible
+Classic tkinter approach is based on the "after" method, but with async_tkinter_loop it is possible
 to create a non-blocking "infinite" loop.
 """
 
 import asyncio
 import tkinter as tk
 
-from asynctk import async_mainloop, async_command
+from async_tkinter_loop import async_mainloop, async_command
 
 
 async def counter():

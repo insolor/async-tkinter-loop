@@ -1,8 +1,9 @@
 import asyncio
+from unittest.mock import Mock
+
 import pytest
 
-from asynctk import AsyncTkLoop
-from unittest.mock import Mock
+from async_tkinter_loop import AsyncTkLoop
 
 
 def create_tk_mock() -> Mock:
