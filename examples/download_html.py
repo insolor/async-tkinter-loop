@@ -5,7 +5,7 @@ import asyncio
 import aiohttp
 
 
-from asynctk import AsyncTk
+from asynctk import async_mainloop
 
 
 async def fetch():
@@ -23,12 +23,13 @@ async def fetch():
 
 
 def load_data():
+    text.delete(1.0, tk.END)
     text.insert(tk.END, "Loading...")
     button['state'] = 'disabled'
     asyncio.ensure_future(fetch())
 
 
-root = AsyncTk()
+root = tk.Tk()
 
 button = tk.Button(root, text='Load text', command=load_data)
 button.pack()
@@ -36,4 +37,4 @@ button.pack()
 text = tk.Text(root)
 text.pack()
 
-root.mainloop()
+async_mainloop(root)

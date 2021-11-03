@@ -5,7 +5,7 @@ import aiohttp
 from io import BytesIO
 from PIL import Image, ImageTk
 
-from asynctk import AsyncTk
+from asynctk import async_mainloop
 
 
 async def fetch_image(url):
@@ -31,7 +31,7 @@ def load_image():
     asyncio.ensure_future(fetch_image(url))
 
 
-root = AsyncTk()
+root = tk.Tk()
 
 button = tk.Button(root, text='Load a cat', command=load_image)
 button.pack()
@@ -39,4 +39,4 @@ button.pack()
 label = tk.Label(root)
 label.pack()
 
-root.mainloop()
+async_mainloop(root)

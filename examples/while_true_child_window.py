@@ -3,7 +3,7 @@ import tkinter as tk
 
 from functools import partial
 
-from asynctk import AsyncTk
+from asynctk import async_mainloop
 
 
 def create_child_window(parent):
@@ -21,8 +21,8 @@ def create_child_window(parent):
     tk.Button(child, text="Start", command=lambda: asyncio.ensure_future(counter())).pack()
 
 
-root = AsyncTk()
+root = tk.Tk()
 
 tk.Button(root, text="Open second window", command=partial(create_child_window, root)).pack()
 
-root.mainloop()
+async_mainloop(root)

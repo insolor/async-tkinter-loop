@@ -1,6 +1,18 @@
 import asyncio
 import pytest
-from tk_mock import create_tk_mock
+
+from asynctk import AsyncTkLoop
+from unittest.mock import Mock
+
+
+def create_tk_mock() -> Mock:
+    tk_mock = Mock()
+    updater = AsyncTkLoop()
+    updater.bind(tk_mock)
+    tk_mock.mainloop = updater.mainloop
+    
+    tk_mock.close = updater._on_close
+    return tk_mock
 
 
 @pytest.mark.timeout(0.1)
