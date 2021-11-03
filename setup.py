@@ -13,7 +13,7 @@ test_requires = [
 
 setup(name='async-tkinter-loop',
       version='0.0.1',
-      description='Asynchronous wrapper for tkinter',
+      description='Asynchronous mainloop implementation for tkinter',
       url='https://github.com/insolor/async-tkinter-loop',
       author='insolor',
       author_email='insolor@gmail.com',
