@@ -1,5 +1,5 @@
 import asyncio
-import tkinter as tk
+import tkinter
 
 
 class AsyncTkLoop:
@@ -21,19 +21,10 @@ class AsyncTkLoop:
     def mainloop(self):
         asyncio.get_event_loop().run_until_complete(self._main_loop())
     
-    def bind(self, root):
+    def bind(self, root: tkinter.Tk):
         self._tk = root
         root.protocol("WM_DELETE_WINDOW", self._on_close)
         return self
-
-
-class AsyncTk(tk.Tk):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._async_loop = AsyncTkLoop(self)
-
-    def mainloop(self, n=None):
-        self._async_loop.mainloop()
 
 
 def async_mainloop(root):
