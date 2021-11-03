@@ -1,5 +1,5 @@
-import tkinter as tk
 import asyncio
+import tkinter as tk
 
 
 class AsyncTkLoop:
@@ -16,7 +16,7 @@ class AsyncTkLoop:
     async def _main_loop(self):
         while not self._done:
             self._tk.update()
-            await asyncio.sleep(0.05)
+            await asyncio.sleep(0.01)
         
     def mainloop(self):
         asyncio.get_event_loop().run_until_complete(self._main_loop())
