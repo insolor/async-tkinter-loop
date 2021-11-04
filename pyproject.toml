@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "async-tkinter-loop"
+version = "0.0.1"
+description = "Asynchronous mainloop implementation for tkinter"
+authors = ["insolor <insolor@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+asyncio = "^3.4.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+pytest-cov = "^3.0.0"
+pytest-timeout = "^2.0.1"
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
