@@ -1,0 +1,5 @@
+[flake8]
+ignore = W293
+exclude = .git,__pycache__,venv,.venv
+max-line-length = 127
+max-complexity = 10
