@@ -24,7 +24,7 @@ async def shoot_spark(x, y):
     canvas.delete(spark)
 
 
-async def on_mouse_move(event):
+async def on_mouse_drag(event):
     x = event.x
     y = event.y
     await asyncio.wait([shoot_spark(x, y) for _ in range(5)])
@@ -35,7 +35,7 @@ root = tk.Tk()
 canvas = tk.Canvas(root, bg="black", highlightthickness=0)
 canvas.pack()
 
-canvas.bind("<B1-Motion>", async_event_handler(on_mouse_move))
+canvas.bind("<B1-Motion>", async_event_handler(on_mouse_drag))
 
 if __name__ == "__main__":
     async_mainloop(root)
