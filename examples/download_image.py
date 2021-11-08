@@ -14,7 +14,7 @@ async def load_image(url):
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
         if response.status != 200:
-            label['text'] = 'HTTP error ' + str(response.status)
+            label['text'] = f'HTTP error {response.status}'
         else:
             content = await response.content.read()
             pil_image = Image.open(BytesIO(content))
