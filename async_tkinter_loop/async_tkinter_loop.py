@@ -32,3 +32,7 @@ def async_command(command, *args, **kwargs):
     :return: function
     """
     return lambda: asyncio.ensure_future(command(*args, **kwargs))
+
+
+def async_event_handler(command, *args, **kwargs):
+    return lambda event: asyncio.ensure_future(command(event, *args, **kwargs))
