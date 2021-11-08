@@ -30,13 +30,13 @@ async def shoot_spark(canvas, x, y):
     canvas.delete(spark)
 
 
-async def on_mouse_move(event):
+async def on_mouse_drag(event):
     x = event.x
     y = event.y
     await asyncio.wait([shoot_spark(canvas, x, y) for _ in range(5)])
 
 
-canvas.bind("<B1-Motion>", async_event_handler(on_mouse_move))
+canvas.bind("<B1-Motion>", async_event_handler(on_mouse_drag))
 
 
 async_mainloop(root)
