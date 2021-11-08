@@ -12,27 +12,28 @@ canvas = tk.Canvas(root, bg="black", highlightthickness=0)
 canvas.pack()
 
 
-def create_spark(canvas, x, y):
-    a = 2 * math.pi * random.random()
-    r1 = random.randint(0, 50)
-    r2 = random.randint(20, 100)
-    dx = math.cos(a)
-    dy = math.sin(a)
-    return canvas.create_line(x + dx*r1, y + dy*r1, x + dx*r2, y + dy*r2, fill="yellow")
+async def shoot_spark(canvas, x, y):
+    direction = 2 * math.pi * random.random()
+    vel = random.randint(5, 20)
+    dx = math.cos(direction)
+    dy = math.sin(direction)
+    spark_len = 10
+    
+    spark = canvas.create_line(x, y, x + dx*spark_len, y + dy*spark_len,  fill="yellow")
+    
+    for _ in range(5):
+        await asyncio.sleep(0.05)
+        x += dx*vel
+        y += dy*vel
+        canvas.coords(spark, x, y, x + dx*spark_len, y + dy*spark_len)
+    
+    canvas.delete(spark)
 
 
 async def on_mouse_move(event):
     x = event.x
     y = event.y
-    
-    # Draw sparks
-    sparks = [create_spark(canvas, x, y) for _ in range(10)]
-    
-    await asyncio.sleep(0.1)
-    
-    # Remove sparks
-    for spark in sparks:
-        canvas.delete(spark)
+    await asyncio.wait([shoot_spark(canvas, x, y) for _ in range(5)])
 
 
 canvas.bind("<B1-Motion>", async_event_handler(on_mouse_move))
