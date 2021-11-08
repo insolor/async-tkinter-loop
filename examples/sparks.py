@@ -6,13 +6,7 @@ import tkinter as tk
 from async_tkinter_loop import async_mainloop, async_event_handler
 
 
-root = tk.Tk()
-
-canvas = tk.Canvas(root, bg="black", highlightthickness=0)
-canvas.pack()
-
-
-async def shoot_spark(canvas, x, y):
+async def shoot_spark(x, y):
     direction = 2 * math.pi * random.random()
     vel = random.randint(5, 20)
     dx = math.cos(direction)
@@ -33,10 +27,15 @@ async def shoot_spark(canvas, x, y):
 async def on_mouse_drag(event):
     x = event.x
     y = event.y
-    await asyncio.wait([shoot_spark(canvas, x, y) for _ in range(5)])
+    await asyncio.wait([shoot_spark(x, y) for _ in range(5)])
 
+
+root = tk.Tk()
+
+canvas = tk.Canvas(root, bg="black", highlightthickness=0)
+canvas.pack()
 
 canvas.bind("<B1-Motion>", async_event_handler(on_mouse_drag))
 
-
-async_mainloop(root)
+if __name__ == "__main__":
+    async_mainloop(root)

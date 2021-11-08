@@ -26,13 +26,41 @@ def async_mainloop(root):
 
 def async_command(command, *args, **kwargs):
     """
-    Helper function
+    Helper function to pass async functions as command handlers (eg. button click handlers)
+
     :param command: async function
-    :param args, kwargs: parameters which will be passed to the async function
+    :param args: positional parameters which will be passed to the async function
+    :param kwargs: keyword parameters which will be passed to the async function
     :return: function
+    
+    Example: ::
+
+        async def some_async_function():
+            print("Wait...")
+            await asyncio.sleep(0.5)
+            print("Done!")
+    
+        button = tk.Button("Press me", command=async_command(some_async_function))
     """
     return lambda: asyncio.ensure_future(command(*args, **kwargs))
 
 
 def async_event_handler(command, *args, **kwargs):
+    """
+    Helper function to pass async functions as event handlers
+
+    :param command: async function
+    :param args: positional parameters which will be passed to the async function
+    :param kwargs: keyword parameters which will be passed to the async function
+    :return: function
+    
+    Example: ::
+
+        async def some_async_function(event):
+            print("Wait...")
+            await asyncio.sleep(0.5)
+            print("Done!")
+
+        button = root.bind("<1>", command=async_event_handler(some_async_function))
+    """
     return lambda event: asyncio.ensure_future(command(event, *args, **kwargs))
