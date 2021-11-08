@@ -30,7 +30,7 @@ tk.Button(root, text="Start", command=async_command(counter)).pack()
 async_mainloop(root)
 ```
 
-More practical example, download an image from internet with [`aiohttp`](https://github.com/aio-libs/aiohttp) and display it in the tkinter window:
+A more practical example, downloading an image from the Internet with [aiohttp](https://github.com/aio-libs/aiohttp) and displaying it in the Tkinter window:
 
 ```python
 import tkinter as tk
