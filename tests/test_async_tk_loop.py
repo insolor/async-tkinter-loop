@@ -6,20 +6,21 @@ import pytest
 from async_tkinter_loop import async_mainloop, async_command, async_event_handler
 
 
-def create_tk_mock() -> Mock:
-    tk_mock = Mock()
+@pytest.fixture
+def tk_mock() -> Mock:
+    root = Mock()
 
     def protocol(_, on_close):
-        tk_mock.close = on_close
+        root.close = on_close
 
-    tk_mock.protocol = protocol
+    root.protocol = protocol
 
-    return tk_mock
+    return root
 
 
 @pytest.mark.timeout(0.1)
-def test_updater():
-    root = create_tk_mock()
+def test_updater(tk_mock):
+    root = tk_mock
 
     # Simulate window closing on the first update
     def update():
@@ -31,8 +32,8 @@ def test_updater():
 
 
 @pytest.mark.timeout(0.3)
-def test_async_command():
-    root = create_tk_mock()
+def test_async_command(tk_mock):
+    root = tk_mock
 
     # Simulate a click on a button which closes the window with some delay
     async def button_pressed():
@@ -45,8 +46,8 @@ def test_async_command():
 
 
 @pytest.mark.timeout(0.3)
-def test_async_event_handler():
-    root = create_tk_mock()
+def test_async_event_handler(tk_mock):
+    root = tk_mock
 
     async def on_click(event):
         await asyncio.sleep(0.2)
