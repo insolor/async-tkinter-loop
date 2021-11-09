@@ -14,7 +14,7 @@ Based on ideas from:
 
 ### Release version
 
-Download `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl` file from [releases](/releases), install it with the following command:
+Download `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl` file from [releases](https://github.com/insolor/async-tkinter-loop/releases), install it with the following command:
 
 ```
 pip install async-tkinter-loop-*.tar.gz[examples]
