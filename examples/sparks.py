@@ -33,7 +33,7 @@ async def on_mouse_drag(event):
 root = tk.Tk()
 
 canvas = tk.Canvas(root, bg="black", highlightthickness=0)
-canvas.pack()
+canvas.pack(expand=1, fill=tk.BOTH)
 
 canvas.bind("<B1-Motion>", async_event_handler(on_mouse_drag))
 
