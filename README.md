@@ -4,6 +4,15 @@
 
 An implementation of asynchronous `main_loop` for tkinter, the use of which allows using `async` handler functions.
 
+Based on ideas from:
+
+* my answer on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/1043146>
+* answer of [Terry Jan Reedy](https://stackoverflow.com/users/722804) on stackoverflow.com: <https://stackoverflow.com/a/47896365>
+* answer of [jfs](https://ru.stackoverflow.com/users/23044) on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/804609>
+
+
+## Some examples
+
 Basic example:
 ```python
 import asyncio
@@ -79,13 +88,8 @@ if __name__ == "__main__":
 
 More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/master/examples) directory.
 
-Based on:
 
-* my answer on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/1043146>
-* answer of [Terry Jan Reedy](https://stackoverflow.com/users/722804) on stackoverflow.com: <https://stackoverflow.com/a/47896365>
-* answer of [jfs](https://ru.stackoverflow.com/users/23044) on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/804609>
-
-Similar projects:
+## Similar projects
 
 * [Starwort/asynctk](https://github.com/Starwort/asynctk) ([on PyPi](https://pypi.org/project/asynctk/))
 * [gottadiveintopython/asynctkinter](https://github.com/gottadiveintopython/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/))
