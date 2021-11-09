@@ -1,4 +1,4 @@
-# async tkinter wrapper
+# Asynchronous Tkinter Mainloop
 
 [![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
 
