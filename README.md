@@ -2,14 +2,54 @@
 
 [![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
 
-An implementation of asynchronous `main_loop` for tkinter, the use of which allows using `async` handler functions.
+Implementation of asynchronous `mainloop` for tkinter, the use of which allows using `async` handler functions.
+It is intended to be as simple to use as possible. No fancy unusual syntax or constructions - just use an alternative
+function instead of `root.mainloop()` and wrap asynchronous handler functions into helper functions.
 
 Based on ideas from:
 
 * my answer on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/1043146>
-* answer of [Terry Jan Reedy](https://stackoverflow.com/users/722804) on stackoverflow.com: <https://stackoverflow.com/a/47896365>
-* answer of [jfs](https://ru.stackoverflow.com/users/23044) on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/804609>
+* answer of [Terry Jan Reedy](https://stackoverflow.com/users/722804) on stackoverflow.com:
+  <https://stackoverflow.com/a/47896365>
+* answer of [jfs](https://ru.stackoverflow.com/users/23044) on ru.stackoverflow.com:
+  <https://ru.stackoverflow.com/a/804609>
 
+## Installation
+
+### Release version
+
+Download `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl` file from
+[releases](https://github.com/insolor/async-tkinter-loop/releases),
+install it with the following command:
+
+```
+pip install async-tkinter-loop-*.tar.gz[examples]
+```
+or
+```
+pip install async_tkinter_loop-*.whl[examples]
+```
+
+- `[examples]` part is needed to install optional dependencies (such as `aiohttp` and `pillow`) to run some of the
+  examples. If you're not going to run examples, remove the `[examples]` part from the command
+- Insert actual file name instead of `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl`
+- Use `pip3` instead of `pip` on Linux systems to install the package for python3 (not python2)
+- Probably you'll want to create a virtual environment for experiments with this library, but this is optional.
+- If you want to try examples, download the entire repository as an archive (green "code" button on this page →
+  "Download ZIP"), unpack, run any example (of course, you need to install optional dependencies)
+
+### Development version
+
+1. Install [Poetry](https://python-poetry.org), e.g., with `pip install poetry` command
+   (other options see [here](https://python-poetry.org/docs/#installation))
+2. Download and unpack or clone the repository.
+3. Run the command `poetry install` or `poetry install -E examples` (the later command installs optional dependencies
+   needed to run some of the examples). This command will create `.venv` directory with a virtual environment and
+   install dependencies into it.
+   - Run any example with `poetry run python examples/sparks.py` (insert a file name of an example).
+   - Or activate the virtual environment and run an example with `python examples/sparks.py` command. You can also open
+     the directory with the project in some IDE (e.g., PyCharm or VS Code) and select Python interpreter from the
+     virtual environment as a project interpreter, then run examples directly from the IDE.
 
 ## Some examples
 
@@ -39,7 +79,8 @@ tk.Button(root, text="Start", command=async_command(counter)).pack()
 async_mainloop(root)
 ```
 
-A more practical example, downloading an image from the Internet with [aiohttp](https://github.com/aio-libs/aiohttp) and displaying it in the Tkinter window:
+A more practical example, downloading an image from the Internet with [aiohttp](https://github.com/aio-libs/aiohttp)
+and displaying it in the Tkinter window:
 
 ```python
 import tkinter as tk
