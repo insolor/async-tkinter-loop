@@ -127,7 +127,7 @@ if __name__ == "__main__":
 ![black cat](img/black_cat.png)
 
 
-More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/master/examples) directory.
+More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/main/examples) directory.
 
 
 ## Similar projects
