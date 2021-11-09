@@ -35,7 +35,7 @@ pip install async_tkinter_loop-*.whl[examples]
 - Insert actual file name instead of `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl`
 - Use `pip3` instead of `pip` on Linux systems to install the package for python3 (not python2)
 - Probably you'll want to create a virtual environment for experiments with this library, but this is optional.
-- If you want to try examples, download the entire repository as an archive (green "code" button on this page ->
+- If you want to try examples, download the entire repository as an archive (green "code" button on this page →
   "Download ZIP"), unpack, run any example (of course, you need to install optional dependencies)
 
 ### Development version
