@@ -4,7 +4,7 @@
 
 Implementation of asynchronous `mainloop` for tkinter, the use of which allows using `async` handler functions.
 It is intended to be as simple to use as possible. No fancy unusual syntax or constructions - just use an alternative
-function instead of `root.mainloop()` and wrap asynchronous handler functions into helper functions.
+function instead of `root.mainloop()` and wrap asynchronous handlers into helper functions.
 
 Based on ideas from:
 
