@@ -9,7 +9,8 @@ from async_tkinter_loop import async_mainloop, async_command
 
 async def load_image(url):
     button['state'] = 'disabled'
-    label['text'] = 'Loading cat...'
+    label['image'] = ''
+    label['text'] = 'Loading...'
 
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
