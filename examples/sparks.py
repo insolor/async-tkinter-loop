@@ -12,15 +12,15 @@ async def shoot_spark(x, y):
     dx = math.cos(direction)
     dy = math.sin(direction)
     spark_len = 10
-    
-    spark = canvas.create_line(x, y, x + dx*spark_len, y + dy*spark_len,  fill="yellow")
-    
+
+    spark = canvas.create_line(x, y, x + dx * spark_len, y + dy * spark_len, fill="yellow")
+
     for _ in range(5):
         await asyncio.sleep(0.05)
-        x += dx*vel
-        y += dy*vel
-        canvas.coords(spark, x, y, x + dx*spark_len, y + dy*spark_len)
-    
+        x += dx * vel
+        y += dy * vel
+        canvas.coords(spark, x, y, x + dx * spark_len, y + dy * spark_len)
+
     canvas.delete(spark)
 
 
