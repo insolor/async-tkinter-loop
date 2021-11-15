@@ -1,9 +1,20 @@
 [tool.poetry]
 name = "async-tkinter-loop"
-version = "0.0.1"
+version = "0.0.1-RC3"
 description = "Asynchronous mainloop implementation for tkinter"
 authors = ["insolor <insolor@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/insolor/async-tkinter-loop"
+repository = "https://github.com/insolor/async-tkinter-loop"
+keywords = ["tkinter", "async", "async-await", "asyncio", "aiohttp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"

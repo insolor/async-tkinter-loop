@@ -18,31 +18,29 @@ Based on ideas from:
 
 ### Release version
 
-Download `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl` file from
-[releases](https://github.com/insolor/async-tkinter-loop/releases),
-install it with the following command:
+Install the package with the following command:
 
 ```
-pip install async-tkinter-loop-*.tar.gz[examples]
+pip install async-tkinter-loop
 ```
 or
 ```
-pip install async_tkinter_loop-*.whl[examples]
+pip install async-tkinter-loop[examples]
 ```
 
 - `[examples]` part is needed to install optional dependencies (such as `aiohttp` and `pillow`) to run some of the
   examples. If you're not going to run examples, remove the `[examples]` part from the command
-- Insert actual file name instead of `async-tkinter-loop-*.tar.gz` or `async_tkinter_loop-*.whl`
 - Use `pip3` instead of `pip` on Linux systems to install the package for python3 (not python2)
 - Probably you'll want to create a virtual environment for experiments with this library, but this is optional.
-- If you want to try examples, download the entire repository as an archive (green "code" button on this page →
+- If you want to try examples, download the entire repository as an archive (green "code" button on
+  [the github page](https://github.com/insolor/async-tkinter-loop) →
   "Download ZIP"), unpack, run any example (of course, you need to install optional dependencies)
 
 ### Development version
 
-1. Install [Poetry](https://python-poetry.org), e.g., with `pip install poetry` command
-   (other options see [here](https://python-poetry.org/docs/#installation))
-2. Download and unpack or clone the repository.
+1. Install [Poetry](https://python-poetry.org), e.g., with `pip install poetry` (`pip3 install poetry`) command
+   (other possible ways of installation see [here](https://python-poetry.org/docs/#installation))
+2. Download and unpack or clone [the repository](https://github.com/insolor/async-tkinter-loop).
 3. Run the command `poetry install` or `poetry install -E examples` (the later command installs optional dependencies
    needed to run some of the examples). This command will create `.venv` directory with a virtual environment and
    install dependencies into it.
@@ -124,7 +122,7 @@ if __name__ == "__main__":
     async_mainloop(root)
 ```
 
-![black cat](img/black_cat.png)
+![black cat](https://github.com/insolor/async-tkinter-loop/blob/main/img/black_cat.png?raw=true)
 
 
 More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/main/examples) directory.
