@@ -102,16 +102,6 @@ async def load_image(url):
         else:
             content = await response.content.read()
             pil_image = Image.open(BytesIO(content))
-            
-            # Resize the image to fit to the window
-            label_width, label_height = label.winfo_width(), label.winfo_height()
-            scale_ratio = max(pil_image.width / label_width, pil_image.height / label_height)
-            
-            if scale_ratio > 1:  # Downscale large images, don't enlarge little ones
-                new_width = int(pil_image.width / scale_ratio)
-                new_height = int(pil_image.height / scale_ratio)
-                pil_image = pil_image.resize((new_width, new_height), Image.ANTIALIAS)
-            
             image = ImageTk.PhotoImage(pil_image)
             label.config(image=image, text='')
             label.image = image
