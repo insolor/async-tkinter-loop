@@ -20,7 +20,7 @@ async def load_image(url):
             content = await response.content.read()
             pil_image = Image.open(BytesIO(content))
             
-            # Resize image to fit to the window
+            # Resize the image to fit to the window
             label_width, label_height = label.winfo_width(), label.winfo_height()
             scale_ratio = max(pil_image.width / label_width, pil_image.height / label_height)
             
@@ -35,13 +35,12 @@ async def load_image(url):
             button['state'] = 'normal'
 
 
-url = "http://thecatapi.com/api/images/get?format=src&type=jpg"
-
+url = "https://picsum.photos/800/640"
 
 root = tk.Tk()
-root.geometry("400x400")
+root.geometry("800x640")
 
-button = tk.Button(root, text='Load a cat', command=async_command(load_image, url))
+button = tk.Button(root, text='Load an image', command=async_command(load_image, url))
 button.pack()
 
 label = tk.Label(root)
