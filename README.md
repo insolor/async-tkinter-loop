@@ -123,8 +123,6 @@ if __name__ == "__main__":
     async_mainloop(root)
 ```
 
-![screenshot](https://github.com/insolor/async-tkinter-loop/blob/main/img/screenshot.png?raw=true)
-
 
 More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/main/examples) directory.
 
