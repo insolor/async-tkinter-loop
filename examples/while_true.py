@@ -1,5 +1,5 @@
 """
-There is a simple example of how to do repeatable actions without blocking the GUI.
+This is a simple example of how to do repeatable actions without blocking the GUI.
 Classic tkinter approach is based on the "after" method, but with async_tkinter_loop it is possible
 to create a non-blocking "infinite" loop.
 """
