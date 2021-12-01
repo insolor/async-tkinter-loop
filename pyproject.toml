@@ -27,6 +27,7 @@ pytest = "^6.2.5"
 pytest-cov = "^3.0.0"
 pytest-timeout = "^2.0.1"
 flake8 = "^4.0.1"
+tkinter-stubs = { url = "https://github.com/insolor/tkinter-stubs/releases/download/0.1.0/tkinter_stubs-0.1.0-py3-none-any.whl" }
 
 [tool.poetry.extras]
 examples = ["aiohttp", "Pillow"]
