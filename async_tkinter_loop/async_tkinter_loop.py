@@ -1,5 +1,6 @@
 import asyncio
 import tkinter
+from typing import Callable, Awaitable
 
 
 class AsyncTkLoop:
@@ -24,7 +25,7 @@ def async_mainloop(root):
     AsyncTkLoop(root).mainloop()
 
 
-def async_command(command, *args, **kwargs):
+def async_command(command: Callable[..., Awaitable], *args, **kwargs):
     """
     Helper function to pass async functions as command handlers (eg. button click handlers)
 
@@ -45,7 +46,7 @@ def async_command(command, *args, **kwargs):
     return lambda: asyncio.ensure_future(command(*args, **kwargs))
 
 
-def async_event_handler(command, *args, **kwargs):
+def async_event_handler(command: Callable[..., Awaitable], *args, **kwargs):
     """
     Helper function to pass async functions as event handlers
 
