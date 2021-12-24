@@ -2,6 +2,7 @@
 
 [![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
 [![PyPI](https://img.shields.io/pypi/v/async-tkinter-loop)](https://pypi.org/project/async-tkinter-loop/)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/async-tkinter-loop)
 
 Implementation of asynchronous `mainloop` for tkinter, the use of which allows using `async` handler functions.
 It is intended to be as simple to use as possible. No fancy unusual syntax or constructions - just use an alternative
