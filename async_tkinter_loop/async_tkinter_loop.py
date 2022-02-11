@@ -1,5 +1,6 @@
 import asyncio
 import tkinter
+from _tkinter import TclError
 from typing import Callable, Awaitable
 
 
@@ -7,14 +8,14 @@ class AsyncTkLoop:
     def __init__(self, root: tkinter.Tk):
         self._done = False
         self._tk = root
-        root.protocol("WM_DELETE_WINDOW", self._on_close)
-    
-    def _on_close(self):
-        self._done = True
     
     async def _main_loop(self):
         while not self._done:
-            self._tk.update()
+            try:
+                self._tk.update()
+            except TclError:
+                break
+            
             await asyncio.sleep(0.01)
         
     def mainloop(self):

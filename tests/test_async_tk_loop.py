@@ -1,4 +1,5 @@
 import asyncio
+from _tkinter import TclError
 from unittest.mock import Mock
 
 import pytest
@@ -10,10 +11,13 @@ from async_tkinter_loop import async_mainloop, async_command, async_event_handle
 def tk_mock() -> Mock:
     root = Mock()
 
-    def protocol(_, on_close):
-        root.close = on_close
+    def update():
+        raise TclError
 
-    root.protocol = protocol
+    def close():
+        root.update = update
+
+    root.close = close
 
     return root
 
