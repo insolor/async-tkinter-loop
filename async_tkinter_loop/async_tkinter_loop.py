@@ -44,11 +44,24 @@ def async_handler(command: Callable[..., Awaitable], *args, **kwargs):
     
         button = tk.Button("Press me", command=async_handler(some_async_function))
 
+        # ----
+
         async def some_async_function(event):
             print("Wait...")
             await asyncio.sleep(0.5)
             print("Done!")
 
         root.bind("<1>", command=async_handler(some_async_function))
+
+        # ----
+
+        # Also, it can be used as a decorator
+        @async_handler
+        async def some_async_function():
+            print("Wait...")
+            await asyncio.sleep(0.5)
+            print("Done!")
+
+        button = tk.Button("Press me", command=some_async_function)
     """
     return lambda *handler_args: asyncio.ensure_future(command(*handler_args, *args, **kwargs))
