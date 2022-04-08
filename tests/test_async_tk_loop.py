@@ -61,3 +61,33 @@ def test_async_event_handler(tk_mock):
     async_handler(on_click)(event)
     
     async_mainloop(root)
+
+
+@pytest.mark.timeout(0.3)
+def test_async_command_as_decorator(tk_mock):
+    root = tk_mock
+
+    # Simulate a click on a button which closes the window with some delay
+    @async_handler
+    async def button_pressed():
+        await asyncio.sleep(0.2)
+        root.close()
+
+    button_pressed()
+    
+    async_mainloop(root)
+
+
+@pytest.mark.timeout(0.3)
+def test_async_event_handler_as_decorator(tk_mock):
+    root = tk_mock
+
+    @async_handler
+    async def on_click(event):
+        await asyncio.sleep(0.2)
+        root.close()
+
+    event = None
+    on_click(event)
+    
+    async_mainloop(root)
