@@ -3,6 +3,7 @@
 [![Python package](https://github.com/insolor/asynctk/actions/workflows/python-package.yml/badge.svg)](https://github.com/insolor/asynctk/actions/workflows/python-package.yml)
 [![Coverage Status](https://coveralls.io/repos/github/insolor/async-tkinter-loop/badge.svg?branch=main)](https://coveralls.io/github/insolor/async-tkinter-loop?branch=main)
 [![PyPI](https://img.shields.io/pypi/v/async-tkinter-loop)](https://pypi.org/project/async-tkinter-loop/)
+![Supported Python versions](https://img.shields.io/pypi/pyversions/async-tkinter-loop)
 <!--![PyPI - Downloads](https://img.shields.io/pypi/dm/async-tkinter-loop)-->
 
 Implementation of asynchronous `mainloop` for tkinter, the use of which allows using `async` handler functions.
