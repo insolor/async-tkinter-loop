@@ -4,7 +4,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from async_tkinter_loop import async_mainloop, async_command, async_event_handler
+from async_tkinter_loop import async_mainloop, async_handler
 
 
 @pytest.fixture
@@ -44,7 +44,7 @@ def test_async_command(tk_mock):
         await asyncio.sleep(0.2)
         root.close()
 
-    async_command(button_pressed)()
+    async_handler(button_pressed)()
     
     async_mainloop(root)
 
@@ -58,6 +58,6 @@ def test_async_event_handler(tk_mock):
         root.close()
 
     event = None
-    async_event_handler(on_click)(event)
+    async_handler(on_click)(event)
     
     async_mainloop(root)

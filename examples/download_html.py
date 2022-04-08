@@ -4,7 +4,7 @@ import tkinter as tk
 
 import aiohttp
 
-from async_tkinter_loop import async_mainloop, async_command
+from async_tkinter_loop import async_mainloop, async_handler
 
 
 async def load_data():
@@ -27,7 +27,7 @@ async def load_data():
 
 root = tk.Tk()
 
-button = tk.Button(root, text='Load text', command=async_command(load_data))
+button = tk.Button(root, text='Load text', command=async_handler(load_data))
 button.pack()
 
 text = tk.Text(root)

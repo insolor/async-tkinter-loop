@@ -3,7 +3,7 @@ import math
 import random
 import tkinter as tk
 
-from async_tkinter_loop import async_mainloop, async_event_handler
+from async_tkinter_loop import async_mainloop, async_handler
 
 
 async def shoot_spark(x, y):
@@ -35,7 +35,7 @@ root = tk.Tk()
 canvas = tk.Canvas(root, bg="black", highlightthickness=0)
 canvas.pack(expand=1, fill=tk.BOTH)
 
-canvas.bind("<B1-Motion>", async_event_handler(on_mouse_drag))
+canvas.bind("<B1-Motion>", async_handler(on_mouse_drag))
 
 if __name__ == "__main__":
     async_mainloop(root)

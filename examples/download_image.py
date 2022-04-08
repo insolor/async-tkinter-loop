@@ -4,7 +4,7 @@ from io import BytesIO
 import aiohttp
 from PIL import Image, ImageTk
 
-from async_tkinter_loop import async_mainloop, async_command
+from async_tkinter_loop import async_mainloop, async_handler
 
 
 async def load_image(url):
@@ -30,7 +30,7 @@ url = "https://picsum.photos/800/640"
 root = tk.Tk()
 root.geometry("800x640")
 
-button = tk.Button(root, text='Load an image', command=async_command(load_image, url))
+button = tk.Button(root, text='Load an image', command=async_handler(load_image, url))
 button.pack()
 
 label = tk.Label(root)
