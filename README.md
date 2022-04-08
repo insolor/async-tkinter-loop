@@ -80,6 +80,34 @@ tk.Button(root, text="Start", command=async_handler(counter)).pack()
 async_mainloop(root)
 ```
 
+Also, `async_handler` function can be used as a decorator (but it makes a decorated function syncroneous):
+
+```python
+import asyncio
+import tkinter as tk
+
+from async_tkinter_loop import async_mainloop, async_handler
+
+
+@async_handler
+async def counter():
+    i = 0
+    while True:
+        i += 1
+        label['text'] = str(i)
+        await asyncio.sleep(1.0)
+
+
+root = tk.Tk()
+
+label = tk.Label(root)
+label.pack()
+
+tk.Button(root, text="Start", command=counter).pack()
+
+async_mainloop(root)
+```
+
 A more practical example, downloading an image from the Internet with [aiohttp](https://github.com/aio-libs/aiohttp)
 and displaying it in the Tkinter window:
 
