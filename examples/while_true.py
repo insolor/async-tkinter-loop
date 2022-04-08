@@ -10,6 +10,7 @@ import tkinter as tk
 from async_tkinter_loop import async_mainloop, async_handler
 
 
+@async_handler
 async def counter():
     i = 0
     while True:
@@ -23,7 +24,7 @@ root = tk.Tk()
 label = tk.Label(root)
 label.pack()
 
-tk.Button(root, text="Start", command=async_handler(counter)).pack()
+tk.Button(root, text="Start", command=counter).pack()
 
 if __name__ == "__main__":
     async_mainloop(root)

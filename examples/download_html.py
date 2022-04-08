@@ -7,6 +7,7 @@ import aiohttp
 from async_tkinter_loop import async_mainloop, async_handler
 
 
+@async_handler
 async def load_data():
     text.delete(1.0, tk.END)
     text.insert(tk.END, "Loading...")
@@ -27,7 +28,7 @@ async def load_data():
 
 root = tk.Tk()
 
-button = tk.Button(root, text='Load text', command=async_handler(load_data))
+button = tk.Button(root, text='Load text', command=load_data)
 button.pack()
 
 text = tk.Text(root)
