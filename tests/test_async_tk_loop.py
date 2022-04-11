@@ -11,11 +11,11 @@ from async_tkinter_loop import async_mainloop, async_handler
 def tk_mock() -> Mock:
     root = Mock()
 
-    def update():
+    def raise_tcl_error():
         raise TclError
 
     def close():
-        root.update = update
+        root.update = raise_tcl_error
 
     root.close = close
 
