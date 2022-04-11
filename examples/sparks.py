@@ -1,3 +1,4 @@
+#!/bin/env python3
 import asyncio
 import math
 import random
@@ -38,5 +39,4 @@ canvas.pack(expand=1, fill=tk.BOTH)
 
 canvas.bind("<B1-Motion>", on_mouse_drag)
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)

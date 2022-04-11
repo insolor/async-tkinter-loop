@@ -1,3 +1,4 @@
+#!/bin/env python3
 import asyncio
 import tkinter as tk
 
@@ -33,5 +34,4 @@ event = asyncio.Event()
 # Start background task
 asyncio.get_event_loop().create_task(counter(event))
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)

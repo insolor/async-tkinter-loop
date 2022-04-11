@@ -1,3 +1,4 @@
+#!/bin/env python3
 import tkinter as tk
 from io import BytesIO
 
@@ -36,5 +37,4 @@ button.pack()
 label = tk.Label(root)
 label.pack(expand=1, fill=tk.BOTH)
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)

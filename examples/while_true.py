@@ -1,3 +1,4 @@
+#!/bin/env python3
 """
 This is a simple example of how to do repeatable actions without blocking the GUI.
 Classic tkinter approach is based on the "after" method, but with async_tkinter_loop it is possible
@@ -26,5 +27,4 @@ label.pack()
 
 tk.Button(root, text="Start", command=counter).pack()
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)

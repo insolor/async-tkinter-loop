@@ -1,3 +1,4 @@
+#!/bin/env python3
 """Based on example from the aiohttp documentation: https://docs.aiohttp.org/en/stable/"""
 
 import tkinter as tk
@@ -34,5 +35,4 @@ button.pack()
 text = tk.Text(root)
 text.pack()
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)
