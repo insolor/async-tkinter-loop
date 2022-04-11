@@ -53,12 +53,11 @@ def test_async_command(tk_mock):
 def test_async_event_handler(tk_mock):
     root = tk_mock
 
-    async def on_click(event):
+    async def on_click(_event):
         await asyncio.sleep(0.2)
         root.close()
 
-    event = None
-    async_handler(on_click)(event)
+    async_handler(on_click)(Mock("Event"))
     
     async_mainloop(root)
 
@@ -83,11 +82,10 @@ def test_async_event_handler_as_decorator(tk_mock):
     root = tk_mock
 
     @async_handler
-    async def on_click(event):
+    async def on_click(_event):
         await asyncio.sleep(0.2)
         root.close()
 
-    event = None
-    on_click(event)
+    on_click(Mock("Event"))
     
     async_mainloop(root)
