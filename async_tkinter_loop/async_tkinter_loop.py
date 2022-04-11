@@ -64,4 +64,4 @@ def async_handler(command: Callable[..., Awaitable], *args, **kwargs):
 
         button = tk.Button("Press me", command=some_async_function)
     """
-    return lambda *handler_args: asyncio.create_task(command(*handler_args, *args, **kwargs))
+    return lambda *handler_args: asyncio.get_event_loop().create_task(command(*handler_args, *args, **kwargs))
