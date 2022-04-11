@@ -31,7 +31,7 @@ tk.Button(root, text="Start/stop", command=start_stop).pack()
 event = asyncio.Event()
 
 # Start background task
-asyncio.ensure_future(counter(event))  # use asyncio.create_task() instead of ensure_future on Python 3.7+
+asyncio.get_event_loop().create_task(counter(event))
 
 if __name__ == "__main__":
     async_mainloop(root)
