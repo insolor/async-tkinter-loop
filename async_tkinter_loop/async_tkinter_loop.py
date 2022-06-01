@@ -28,7 +28,7 @@ def async_mainloop(root):
 
 def async_handler(command: Callable[..., Coroutine], *args, **kwargs):
     """
-    Helper function to pass async functions as command handlers (eg. button click handlers) or event handlers
+    Helper function to pass async functions as command handlers (e.g. button click handlers) or event handlers
 
     :param command: async function
     :param args: positional parameters which will be passed to the async function
