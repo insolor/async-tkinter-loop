@@ -1,5 +1,5 @@
 import asyncio
-from _tkinter import TclError
+from tkinter import TclError
 from unittest.mock import Mock
 
 import pytest
