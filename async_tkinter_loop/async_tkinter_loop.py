@@ -1,5 +1,6 @@
 import asyncio
 import tkinter
+from functools import wraps
 from tkinter import TclError
 from typing import Callable, Awaitable
 
@@ -63,4 +64,9 @@ def async_handler(command: Callable[..., Awaitable], *args, **kwargs):
 
         button = tk.Button("Press me", command=some_async_function)
     """
-    return lambda *handler_args: asyncio.get_event_loop().create_task(command(*handler_args, *args, **kwargs))
+
+    @wraps(command)
+    def wrapper(*handler_args):
+        return asyncio.get_event_loop().create_task(command(*handler_args, *args, **kwargs))
+
+    return wrapper
