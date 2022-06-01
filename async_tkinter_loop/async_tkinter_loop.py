@@ -1,16 +1,15 @@
 import asyncio
 import tkinter
-from _tkinter import TclError
+from tkinter import TclError
 from typing import Callable, Awaitable
 
 
 class AsyncTkLoop:
     def __init__(self, root: tkinter.Tk):
-        self._done = False
         self._tk = root
     
     async def _main_loop(self):
-        while not self._done:
+        while True:
             try:
                 self._tk.update()
             except TclError:
