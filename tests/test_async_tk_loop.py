@@ -1,8 +1,8 @@
 import asyncio
-from tkinter import TclError
 from unittest.mock import Mock
 
 import pytest
+from tkinter import TclError
 
 from async_tkinter_loop import async_mainloop, async_handler
 
@@ -29,7 +29,7 @@ def test_updater(tk_mock):
     # Simulate window closing on the first update
     def update():
         root.close()
-    
+
     root.update = update
 
     async_mainloop(root)
@@ -45,7 +45,7 @@ def test_async_command(tk_mock):
         root.close()
 
     async_handler(button_pressed)()
-    
+
     async_mainloop(root)
 
 
@@ -58,7 +58,7 @@ def test_async_event_handler(tk_mock):
         root.close()
 
     async_handler(on_click)(Mock("Event"))
-    
+
     async_mainloop(root)
 
 
@@ -73,7 +73,7 @@ def test_async_command_as_decorator(tk_mock):
         root.close()
 
     button_pressed()
-    
+
     async_mainloop(root)
 
 
@@ -87,5 +87,5 @@ def test_async_event_handler_as_decorator(tk_mock):
         root.close()
 
     on_click(Mock("Event"))
-    
+
     async_mainloop(root)

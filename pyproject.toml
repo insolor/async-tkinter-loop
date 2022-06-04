@@ -28,6 +28,7 @@ pytest-cov = "^3.0.0"
 pytest-timeout = "^2.0.1"
 flake8 = "^4.0.1"
 tkinter-stubs = { url = "https://github.com/insolor/tkinter-stubs/releases/download/0.1.0/tkinter_stubs-0.1.0-py3-none-any.whl" }
+black = "^22.3.0"
 
 [tool.poetry.extras]
 examples = ["aiohttp", "Pillow"]
@@ -35,3 +36,6 @@ examples = ["aiohttp", "Pillow"]
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120

@@ -10,7 +10,7 @@ async def counter(event):
     while True:
         await event.wait()
         i += 1
-        label['text'] = str(i)
+        label["text"] = str(i)
         await asyncio.sleep(1.0)
 
 
