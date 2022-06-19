@@ -124,21 +124,20 @@ from async_tkinter_loop import async_mainloop, async_handler
 
 
 async def load_image(url):
-    button['state'] = 'disabled'
-    label['image'] = ''
-    label['text'] = 'Loading...'
+    button.config(state=tk.DISABLED)
+    label.confg(text='Loading...", image="")
 
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
         if response.status != 200:
-            label['text'] = f'HTTP error {response.status}'
+            label.config(text=f"HTTP error {response.status}")
         else:
             content = await response.content.read()
             pil_image = Image.open(BytesIO(content))
             image = ImageTk.PhotoImage(pil_image)
-            label.config(image=image, text='')
+            label.config(image=image, text="")
             label.image = image
-            button['state'] = 'normal'
+            button.config(state=tk.NORMAL)
 
 
 url = "https://picsum.photos/800/640"
@@ -146,16 +145,14 @@ url = "https://picsum.photos/800/640"
 root = tk.Tk()
 root.geometry("800x640")
 
-button = tk.Button(root, text='Load an image', command=async_handler(load_image, url))
+button = tk.Button(root, text="Load an image", command=async_handler(load_image, url))
 button.pack()
 
 label = tk.Label(root)
 label.pack(expand=1, fill=tk.BOTH)
 
-if __name__ == "__main__":
-    async_mainloop(root)
+async_mainloop(root)
 ```
-
 
 More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/main/examples) directory.
 
