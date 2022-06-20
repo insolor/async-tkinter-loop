@@ -12,7 +12,7 @@ from async_tkinter_loop import async_mainloop, async_handler
 async def load_data():
     text.delete(1.0, tk.END)
     text.insert(tk.END, "Loading...")
-    button["state"] = "disabled"
+    button.config(state=tk.DISABLED)
 
     async with aiohttp.ClientSession() as session:
         async with session.get("http://python.org") as response:
@@ -24,7 +24,7 @@ async def load_data():
             html = await response.text()
             text.insert(tk.END, "Body:\n{} ...".format(html[:1000]))
 
-            button["state"] = "normal"
+            button.config(state=tk.NORMAL)
 
 
 root = tk.Tk()

@@ -9,21 +9,20 @@ from async_tkinter_loop import async_mainloop, async_handler
 
 
 async def load_image(url):
-    button["state"] = "disabled"
-    label["image"] = ""
-    label["text"] = "Loading..."
+    button.config(state=tk.DISABLED)
+    label.config(text="Loading...", image="")
 
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
         if response.status != 200:
-            label["text"] = f"HTTP error {response.status}"
+            label.config(text=f"HTTP error {response.status}")
         else:
             content = await response.content.read()
             pil_image = Image.open(BytesIO(content))
             image = ImageTk.PhotoImage(pil_image)
-            label.config(image=image, text="")
             label.image = image
-            button["state"] = "normal"
+            label.config(image=image, text="")
+            button.config(state=tk.NORMAL)
 
 
 url = "https://picsum.photos/800/640"

@@ -125,7 +125,7 @@ from async_tkinter_loop import async_mainloop, async_handler
 
 async def load_image(url):
     button.config(state=tk.DISABLED)
-    label.confg(text='Loading...", image="")
+    label.config(text="Loading...", image="")
 
     async with aiohttp.ClientSession() as session:
         response = await session.get(url)
