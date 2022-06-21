@@ -17,6 +17,7 @@ root.geometry("600x400")
 
 text = ScrolledText(root, width=1, height=1)
 text.pack(fill=tk.BOTH, expand=True)
+text.tag_config('red_text', foreground='red')
 
 ping_subprocess: Optional[Process] = None
 
@@ -34,8 +35,8 @@ async def ping():
     )
 
     while ping_subprocess.returncode is None:
-        stdout = ping_subprocess.stdout.readline()
-        stderr = ping_subprocess.stderr.readline()
+        stdout = asyncio.create_task(ping_subprocess.stdout.readline())
+        stderr = asyncio.create_task(ping_subprocess.stderr.readline())
 
         done, pending = await asyncio.wait(
             {stdout, stderr},
@@ -43,12 +44,16 @@ async def ping():
         )
 
         for item in done:
-            text.insert(tk.END, item.result().decode())
+            result_text = item.result().decode()
+            if item is stderr:
+                text.insert(tk.END, result_text, "red_text")
+            else:
+                text.insert(tk.END, result_text)
         
         for item in pending:
             item.cancel()
     
-    text.insert(tk.END, f"Finished with code {ping_subprocess.returncode}")
+    text.insert(tk.END, f"Finished with code {ping_subprocess.returncode}\n\n")
     ping_subprocess = None
 
 
