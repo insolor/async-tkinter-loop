@@ -46,12 +46,13 @@ async def ping():
             return_when=asyncio.FIRST_COMPLETED
         )
 
-        for item in done:
-            result_text = item.result().decode()
-            if item is stderr:
-                text.insert(tk.END, result_text, "red_text")
-            else:
-                text.insert(tk.END, result_text)
+        if stdout in done:
+            result_text = stdout.result().decode()
+            text.insert(tk.END, result_text)
+        
+        if stderr in done:
+            result_text = stderr.result().decode()
+            text.insert(tk.END, result_text, "red_text")
         
         for item in pending:
             item.cancel()
