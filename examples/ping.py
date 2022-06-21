@@ -11,6 +11,7 @@ from tkinter.scrolledtext import ScrolledText
 from typing import Optional
 
 from async_tkinter_loop import async_mainloop, async_handler
+import platform
 
 root = tk.Tk()
 root.geometry("600x400")
@@ -21,6 +22,8 @@ text.tag_config('red_text', foreground='red')
 
 ping_subprocess: Optional[Process] = None
 
+ping_command = ["ping", "-t"] if platform.system() == "Windows" else ["ping"]
+
 
 @async_handler
 async def ping():
@@ -28,7 +31,7 @@ async def ping():
     address = entry.get()
 
     ping_subprocess = await asyncio.create_subprocess_exec(
-        "ping",
+        *ping_command,
         address,
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
