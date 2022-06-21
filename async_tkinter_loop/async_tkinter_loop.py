@@ -1,9 +1,8 @@
 import asyncio
 import tkinter
 from functools import wraps
-from typing import Callable, Coroutine
-
 from tkinter import TclError
+from typing import Callable, Coroutine
 
 
 class AsyncTkLoop:

@@ -5,7 +5,7 @@ import tkinter as tk
 
 import aiohttp
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 @async_handler

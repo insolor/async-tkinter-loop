@@ -4,14 +4,13 @@ An example how to interact with processes asyncroneously and show their output i
 """
 
 import asyncio
-from asyncio.subprocess import Process
+import platform
 import tkinter as tk
+from asyncio.subprocess import Process
 from tkinter.scrolledtext import ScrolledText
-
 from typing import Optional
 
-from async_tkinter_loop import async_mainloop, async_handler
-import platform
+from async_tkinter_loop import async_handler, async_mainloop
 
 root = tk.Tk()
 root.geometry("600x400")

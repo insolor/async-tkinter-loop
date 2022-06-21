@@ -1,10 +1,10 @@
 import asyncio
+from tkinter import TclError
 from unittest.mock import Mock
 
 import pytest
-from tkinter import TclError
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 @pytest.fixture

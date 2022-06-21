@@ -8,7 +8,7 @@ to create a non-blocking "infinite" loop.
 import asyncio
 import tkinter as tk
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 @async_handler

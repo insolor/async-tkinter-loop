@@ -61,7 +61,7 @@ Basic example:
 import asyncio
 import tkinter as tk
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 async def counter():
@@ -88,7 +88,7 @@ Also, `async_handler` function can be used as a decorator (but it makes a decora
 import asyncio
 import tkinter as tk
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 @async_handler
@@ -120,7 +120,7 @@ from io import BytesIO
 import aiohttp
 from PIL import Image, ImageTk
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 async def load_image(url):

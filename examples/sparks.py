@@ -4,7 +4,7 @@ import math
 import random
 import tkinter as tk
 
-from async_tkinter_loop import async_mainloop, async_handler
+from async_tkinter_loop import async_handler, async_mainloop
 
 
 async def shoot_spark(x, y):
