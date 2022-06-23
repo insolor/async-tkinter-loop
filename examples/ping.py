@@ -23,6 +23,16 @@ ping_subprocess: Optional[Process] = None
 
 ping_command = ["ping", "-t"] if platform.system() == "Windows" else ["ping"]
 
+console_encoding = "utf-8"
+
+if platform.system() == "Windows":
+    import win32console  # pip install pywin32
+    console_code_page = win32console.GetConsoleOutputCP()
+    if console_code_page == 65001:
+        console_encoding = "utf-8"
+    else:
+        console_encoding = "cp" + str(console_code_page)
+
 
 @async_handler
 async def ping():
@@ -43,11 +53,11 @@ async def ping():
         done, pending = await asyncio.wait({stdout, stderr}, return_when=asyncio.FIRST_COMPLETED)
 
         if stdout in done:
-            result_text = stdout.result().decode()
+            result_text = stdout.result().decode(console_encoding)
             text.insert(tk.END, result_text)
 
         if stderr in done:
-            result_text = stderr.result().decode()
+            result_text = stderr.result().decode(console_encoding)
             text.insert(tk.END, result_text, "red_text")
 
         for item in pending:
