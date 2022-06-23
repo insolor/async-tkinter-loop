@@ -28,9 +28,7 @@ console_encoding = "utf-8"
 if platform.system() == "Windows":
     import win32console  # pip install pywin32
     console_code_page = win32console.GetConsoleOutputCP()
-    if console_code_page == 65001:
-        console_encoding = "utf-8"
-    else:
+    if console_code_page != 65001:
         console_encoding = "cp" + str(console_code_page)
 
 
