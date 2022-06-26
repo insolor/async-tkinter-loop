@@ -16,11 +16,11 @@ async def load_data():
         response = await client.get("https://python.org", follow_redirects=True)
         text.delete(1.0, tk.END)
 
-        text.insert(tk.END, "Status: {}\n".format(response.status_code))
-        text.insert(tk.END, "Content-type: {}\n".format(response.headers["content-type"]))
+        text.insert(tk.END, f"Status: {response.status_code}\n")
+        text.insert(tk.END, f"Content-type: {response.headers['content-type']}\n")
 
         html = response.text.replace("\r\n", "\n")
-        text.insert(tk.END, "Body:\n{}...".format(html[:1000]))
+        text.insert(tk.END, f"Body:\n{html[:1000]}...")
 
         button.config(state=tk.NORMAL)
 
