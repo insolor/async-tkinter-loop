@@ -2,7 +2,7 @@
 import tkinter as tk
 from io import BytesIO
 
-import aiohttp
+import httpx
 from PIL import Image, ImageTk
 
 from async_tkinter_loop import async_handler, async_mainloop
@@ -12,12 +12,12 @@ async def load_image(url):
     button.config(state=tk.DISABLED)
     label.config(text="Loading...", image="")
 
-    async with aiohttp.ClientSession() as session:
-        response = await session.get(url)
-        if response.status != 200:
-            label.config(text=f"HTTP error {response.status}")
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, follow_redirects=True)
+        if response.status_code != 200:
+            label.config(text=f"HTTP error {response.status_code}")
         else:
-            content = await response.content.read()
+            content = response.content
             pil_image = Image.open(BytesIO(content))
             image = ImageTk.PhotoImage(pil_image)
             label.image = image
