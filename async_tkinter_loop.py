@@ -1,7 +1,7 @@
 import asyncio
 import tkinter
 from functools import wraps
-from typing import Callable, Coroutine
+from typing import Awaitable, Callable, TypeVar
 
 from tkinter import TclError
 
@@ -12,7 +12,7 @@ class AsyncTkLoop:
     def __init__(self, root: tkinter.Tk):
         self._tk = root
 
-    async def _main_loop(self):
+    async def _main_loop(self) -> None:
         while True:
             try:
                 self._tk.update()
@@ -21,19 +21,23 @@ class AsyncTkLoop:
 
             await asyncio.sleep(0.01)
 
-    def mainloop(self):
+    def mainloop(self) -> None:
         asyncio.get_event_loop().run_until_complete(self._main_loop())
 
 
-def async_mainloop(root: tkinter.Tk):
+def async_mainloop(root: tkinter.Tk) -> None:
     AsyncTkLoop(root).mainloop()
 
 
-def async_handler(command: Callable[..., Coroutine], *args, **kwargs):
+T = TypeVar("T")
+# P = ParamSpec("P")
+
+
+def async_handler(async_function: Callable[..., Awaitable[None]], *args, **kwargs) -> Callable[..., None]:
     """
     Helper function to pass async functions as command handlers (e.g. button click handlers) or event handlers
 
-    :param command: async function
+    :param async_function: async function
     :param args: positional parameters which will be passed to the async function
     :param kwargs: keyword parameters which will be passed to the async function
     :return: function
@@ -68,8 +72,8 @@ def async_handler(command: Callable[..., Coroutine], *args, **kwargs):
         button = tk.Button("Press me", command=some_async_function)
     """
 
-    @wraps(command)
-    def wrapper(*handler_args):
-        return asyncio.get_event_loop().create_task(command(*handler_args, *args, **kwargs))
+    @wraps(async_function)
+    def wrapper(*handler_args) -> None:
+        asyncio.get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
