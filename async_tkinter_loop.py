@@ -1,11 +1,14 @@
 import asyncio
 import tkinter
 from functools import wraps
-from tkinter import TclError
 from typing import Callable, Coroutine
+
+from tkinter import TclError
 
 
 class AsyncTkLoop:
+    _tk: tkinter.Tk
+
     def __init__(self, root: tkinter.Tk):
         self._tk = root
 
@@ -22,7 +25,7 @@ class AsyncTkLoop:
         asyncio.get_event_loop().run_until_complete(self._main_loop())
 
 
-def async_mainloop(root):
+def async_mainloop(root: tkinter.Tk):
     AsyncTkLoop(root).mainloop()
 
 
