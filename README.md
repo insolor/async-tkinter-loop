@@ -47,12 +47,13 @@ pip install async-tkinter-loop[examples]
    (other possible ways of installation see [here](https://python-poetry.org/docs/#installation))
 2. Download and unpack or clone [the repository](https://github.com/insolor/async-tkinter-loop).
 3. Run the command `poetry install` or `poetry install -E examples` (the later command installs optional dependencies
-   needed to run some of the examples). This command will create `.venv` directory with a virtual environment and
+   needed to run some examples). This command will create `.venv` directory with a virtual environment and
    install dependencies into it.
    - Run any example with `poetry run python examples/sparks.py` (insert a file name of an example).
-   - Or activate the virtual environment and run an example with `python examples/sparks.py` command. You can also open
-     the directory with the project in some IDE (e.g., PyCharm or VS Code) and select Python interpreter from the
-     virtual environment as a project interpreter, then run examples directly from the IDE.
+   - Or activate the virtual environment with `poetry shell` and run an example with `python examples/sparks.py`
+     command. You can also open the directory with the project in some IDE (e.g., PyCharm or VS Code) 
+     and select Python interpreter from the virtual environment as a project interpreter,
+     then run examples directly from the IDE.
 
 ## Some examples
 
@@ -110,14 +111,15 @@ tk.Button(root, text="Start", command=counter).pack()
 async_mainloop(root)
 ```
 
-A more practical example, downloading an image from the Internet with [aiohttp](https://github.com/aio-libs/aiohttp)
+A more practical example, downloading an image from the Internet with [httpx](https://github.com/encode/httpx)
+(you can use [aiohttp](https://github.com/aio-libs/aiohttp) as well)
 and displaying it in the Tkinter window:
 
 ```python
 import tkinter as tk
 from io import BytesIO
 
-import aiohttp
+import httpx
 from PIL import Image, ImageTk
 
 from async_tkinter_loop import async_handler, async_mainloop
@@ -127,16 +129,16 @@ async def load_image(url):
     button.config(state=tk.DISABLED)
     label.config(text="Loading...", image="")
 
-    async with aiohttp.ClientSession() as session:
-        response = await session.get(url)
-        if response.status != 200:
-            label.config(text=f"HTTP error {response.status}")
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url, follow_redirects=True)
+        if response.status_code != 200:
+            label.config(text=f"HTTP error {response.status_code}")
         else:
-            content = await response.content.read()
+            content = response.content
             pil_image = Image.open(BytesIO(content))
             image = ImageTk.PhotoImage(pil_image)
-            label.config(image=image, text="")
             label.image = image
+            label.config(image=image, text="")
             button.config(state=tk.NORMAL)
 
 
