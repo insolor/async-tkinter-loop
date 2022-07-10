@@ -26,11 +26,11 @@ ping_command = ["ping", "-t"] if platform.system() == "Windows" else ["ping"]
 console_encoding = "utf-8"
 
 if platform.system() == "Windows":
-    import win32console  # pip install pywin32
+    from ctypes import windll
 
-    console_code_page = win32console.GetConsoleOutputCP()
+    console_code_page = windll.kernel32.GetConsoleOutputCP()
     if console_code_page != 65001:
-        console_encoding = "cp" + str(console_code_page)
+        console_encoding = f"cp{console_code_page}"
 
 
 @async_handler
