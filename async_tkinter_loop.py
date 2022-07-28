@@ -1,7 +1,7 @@
 import asyncio
 import tkinter
 from functools import wraps
-from typing import Awaitable, Callable, TypeVar
+from typing import Any, Callable, Coroutine
 
 from tkinter import TclError
 
@@ -29,11 +29,7 @@ def async_mainloop(root: tkinter.Tk) -> None:
     AsyncTkLoop(root).mainloop()
 
 
-T = TypeVar("T")
-# P = ParamSpec("P")
-
-
-def async_handler(async_function: Callable[..., Awaitable[None]], *args, **kwargs) -> Callable[..., None]:
+def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
     """
     Helper function to pass async functions as command handlers (e.g. button click handlers) or event handlers
 
