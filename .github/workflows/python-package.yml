@@ -42,10 +42,8 @@ jobs:
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Install X11
       run: |
-        sudo add-apt-repository ppa:oibaf/graphics-drivers
-        sudo apt-get update
-        sudo apt-get full-upgrade -y
-        sudo apt-get install -y mesa-utils
+        sudo apt-get install xserver-xorg libglu1-mesa-dev freeglut3-dev mesa-common-dev libxmu-dev libxi-dev
+        sudo nvidia-xconfig -a --use-display-device=None --virtual=1280x1024
         sudo /usr/bin/X :0 &
     - name: Test with pytest
       env:
