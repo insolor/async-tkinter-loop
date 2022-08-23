@@ -29,7 +29,7 @@ async def shoot_spark(x, y):
 async def on_mouse_drag(event):
     x = event.x
     y = event.y
-    await asyncio.wait([shoot_spark(x, y) for _ in range(5)])
+    await asyncio.wait([asyncio.create_task(shoot_spark(x, y)) for _ in range(5)])
 
 
 root = tk.Tk()
