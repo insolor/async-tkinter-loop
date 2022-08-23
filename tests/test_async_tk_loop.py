@@ -91,6 +91,7 @@ def test_async_event_handler_as_decorator(tk_mock):
     async_mainloop(root)
 
 
+@pytest.mark.xfail()
 @pytest.mark.timeout(0.3)
 def test_destroy():
     """
