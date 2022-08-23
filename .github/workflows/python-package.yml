@@ -43,7 +43,6 @@ jobs:
     - name: Install X11
       run: |
         sudo apt-get install xserver-xorg libglu1-mesa-dev freeglut3-dev mesa-common-dev libxmu-dev libxi-dev
-        sudo nvidia-xconfig -a --use-display-device=None --virtual=1280x1024
         sudo /usr/bin/X :0 &
     - name: Test with pytest
       env:
