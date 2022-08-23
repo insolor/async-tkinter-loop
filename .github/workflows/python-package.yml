@@ -40,9 +40,13 @@ jobs:
         poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Install X11
+      run: |
+        sudo add-apt-repository ppa:oibaf/graphics-drivers
+        sudo apt-get update
+        sudo apt-get full-upgrade -y
+        sudo apt-get install -y mesa-utils
     - name: Test with pytest
-      env:
-        DISPLAY: :0
       run: |
         poetry run pytest --cov=./
     - name: Upload coverage data to coveralls.io
