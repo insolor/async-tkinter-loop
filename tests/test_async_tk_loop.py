@@ -1,5 +1,5 @@
 import asyncio
-from tkinter import TclError
+from tkinter import TclError, Tk
 from unittest.mock import Mock
 
 import pytest
@@ -88,4 +88,14 @@ def test_async_event_handler_as_decorator(tk_mock):
 
     on_click(Mock("Event"))
 
+    async_mainloop(root)
+
+
+@pytest.mark.timeout(0.3)
+def test_destroy():
+    """
+    Test that root.destroy() stops the application
+    """
+    root = Tk()
+    root.after(100, lambda: root.destroy())
     async_mainloop(root)
