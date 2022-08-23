@@ -15,6 +15,9 @@ class AsyncTkLoop:
     async def _main_loop(self) -> None:
         while True:
             try:
+                if not self._tk.winfo_exists():
+                    break
+
                 self._tk.update()
             except TclError:
                 break
