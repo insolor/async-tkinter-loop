@@ -1,9 +1,8 @@
 import asyncio
 import tkinter
 from functools import wraps
-from typing import Any, Callable, Coroutine
-
 from tkinter import TclError
+from typing import Any, Callable, Coroutine
 
 
 class AsyncTkLoop:
@@ -25,7 +24,7 @@ class AsyncTkLoop:
             await asyncio.sleep(0.01)
 
     def mainloop(self) -> None:
-        asyncio.get_event_loop().run_until_complete(self._main_loop())
+        asyncio.get_event_loop_policy().get_event_loop().run_until_complete(self._main_loop())
 
 
 def async_mainloop(root: tkinter.Tk) -> None:
@@ -73,6 +72,6 @@ def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *arg
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        asyncio.get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
+        asyncio.get_event_loop_policy().get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
