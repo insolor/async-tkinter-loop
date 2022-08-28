@@ -1,8 +1,9 @@
 import asyncio
 import tkinter
 from functools import wraps
-from tkinter import TclError
 from typing import Any, Callable, Coroutine
+
+from tkinter import TclError
 
 
 class AsyncTkLoop:
@@ -14,9 +15,7 @@ class AsyncTkLoop:
     async def _main_loop(self) -> None:
         while True:
             try:
-                if not self._tk.winfo_exists():
-                    break
-
+                self._tk.winfo_exists()  # Will throw TclError if the main window is destroyed
                 self._tk.update()
             except TclError:
                 break
