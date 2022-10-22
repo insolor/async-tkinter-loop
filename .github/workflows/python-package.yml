@@ -25,6 +25,8 @@ jobs:
       with:
         virtualenvs-create: true
         virtualenvs-in-project: true
+    - name: Add ~/.local/bin to PATH
+      run: echo "$HOME/.local/bin" >> $GITHUB_PATH
     - name: Load cached venv
       id: cached-poetry-dependencies
       uses: actions/cache@v3
