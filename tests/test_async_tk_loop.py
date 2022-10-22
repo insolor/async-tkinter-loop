@@ -7,14 +7,14 @@ import pytest
 from async_tkinter_loop import async_handler, async_mainloop
 
 
-@pytest.mark.timeout(5)
+@pytest.mark.timeout(10)
 def test_destroy():
     root = Tk()
     root.destroy()
     async_mainloop(root)
 
 
-@pytest.mark.timeout(5)
+@pytest.mark.timeout(10)
 def test_async_command():
     root = Tk()
 
@@ -28,7 +28,7 @@ def test_async_command():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(5)
+@pytest.mark.timeout(10)
 def test_async_event_handler():
     root = Tk()
 
@@ -41,7 +41,7 @@ def test_async_event_handler():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(5)
+@pytest.mark.timeout(10)
 def test_async_command_as_decorator():
     root = Tk()
 
@@ -56,7 +56,7 @@ def test_async_command_as_decorator():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(5)
+@pytest.mark.timeout(10)
 def test_async_event_handler_as_decorator():
     root = Tk()
 
