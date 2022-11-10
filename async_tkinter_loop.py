@@ -1,33 +1,27 @@
 import asyncio
 import tkinter
 from functools import wraps
+from tkinter import TclError
 from typing import Any, Callable, Coroutine
 
-from tkinter import TclError
+
+async def main_loop(root: tkinter.Tk):
+    while True:
+        try:
+            root.winfo_exists()  # Will throw TclError if the main window is destroyed
+            root.update()
+        except TclError:
+            break
+
+        await asyncio.sleep(0.01)
 
 
-class AsyncTkLoop:
-    _tk: tkinter.Tk
-
-    def __init__(self, root: tkinter.Tk):
-        self._tk = root
-
-    async def _main_loop(self) -> None:
-        while True:
-            try:
-                self._tk.winfo_exists()  # Will throw TclError if the main window is destroyed
-                self._tk.update()
-            except TclError:
-                break
-
-            await asyncio.sleep(0.01)
-
-    def mainloop(self) -> None:
-        asyncio.get_event_loop_policy().get_event_loop().run_until_complete(self._main_loop())
+def _get_event_loop() -> asyncio.AbstractEventLoop:
+    return asyncio.get_event_loop_policy().get_event_loop()
 
 
 def async_mainloop(root: tkinter.Tk) -> None:
-    AsyncTkLoop(root).mainloop()
+    _get_event_loop().run_until_complete(main_loop())
 
 
 def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
@@ -71,6 +65,6 @@ def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *arg
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        asyncio.get_event_loop_policy().get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
+        _get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
