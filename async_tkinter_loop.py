@@ -21,7 +21,7 @@ def _get_event_loop() -> asyncio.AbstractEventLoop:
 
 
 def async_mainloop(root: tkinter.Tk) -> None:
-    _get_event_loop().run_until_complete(main_loop())
+    _get_event_loop().run_until_complete(main_loop(root))
 
 
 def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
