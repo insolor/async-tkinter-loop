@@ -1,11 +1,17 @@
 import asyncio
 import tkinter
 from functools import wraps
-from tkinter import TclError
 from typing import Any, Callable, Coroutine
 
+from tkinter import TclError
 
-async def main_loop(root: tkinter.Tk):
+
+async def main_loop(root: tkinter.Tk) -> None:
+    """
+    An asynchronous implementation of tkinter mainloop
+    :param root: tkinter root object
+    :return: nothing
+    """
     while True:
         try:
             root.winfo_exists()  # Will throw TclError if the main window is destroyed
@@ -17,10 +23,19 @@ async def main_loop(root: tkinter.Tk):
 
 
 def _get_event_loop() -> asyncio.AbstractEventLoop:
+    """
+    A helper function to get event loop using current event loop policy
+    :return: event loop
+    """
     return asyncio.get_event_loop_policy().get_event_loop()
 
 
 def async_mainloop(root: tkinter.Tk) -> None:
+    """
+    A synchronous function to run asynchronous main_loop function
+    :param root: tkinter root object
+    :return: nothing
+    """
     _get_event_loop().run_until_complete(main_loop(root))
 
 
