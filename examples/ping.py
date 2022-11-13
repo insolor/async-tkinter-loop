@@ -1,6 +1,6 @@
 #!/bin/env python3
 """
-An example how to interact with processes asyncroneously and show their output in a tkinter window
+An example how to interact with processes asynchronously and show their output in a tkinter window
 """
 
 import asyncio
