@@ -1,20 +1,22 @@
 import asyncio
-from tkinter import Tk
 from unittest.mock import Mock
 
 import pytest
+from tkinter import Tk
 
 from async_tkinter_loop import async_handler, async_mainloop
 
+TIMEOUT = 15
 
-@pytest.mark.timeout(10)
+
+@pytest.mark.timeout(TIMEOUT)
 def test_destroy():
     root = Tk()
     root.destroy()
     async_mainloop(root)
 
 
-@pytest.mark.timeout(10)
+@pytest.mark.timeout(TIMEOUT)
 def test_async_command():
     root = Tk()
 
@@ -28,7 +30,7 @@ def test_async_command():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(10)
+@pytest.mark.timeout(TIMEOUT)
 def test_async_event_handler():
     root = Tk()
 
@@ -41,7 +43,7 @@ def test_async_event_handler():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(10)
+@pytest.mark.timeout(TIMEOUT)
 def test_async_command_as_decorator():
     root = Tk()
 
@@ -56,7 +58,7 @@ def test_async_command_as_decorator():
     async_mainloop(root)
 
 
-@pytest.mark.timeout(10)
+@pytest.mark.timeout(TIMEOUT)
 def test_async_event_handler_as_decorator():
     root = Tk()
 
