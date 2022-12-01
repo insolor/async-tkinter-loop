@@ -16,7 +16,7 @@ async def counter():
     i = 0
     while True:
         i += 1
-        label["text"] = str(i)
+        label.config(text=str(i))
         await asyncio.sleep(1.0)
 
 
