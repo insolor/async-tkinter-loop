@@ -5,12 +5,12 @@ import tkinter as tk
 from async_tkinter_loop import async_mainloop
 
 
-async def counter(event):
+async def counter():
     i = 0
     while True:
         await event.wait()
         i += 1
-        label["text"] = str(i)
+        label.config(text=str(i))
         await asyncio.sleep(1.0)
 
 
@@ -32,6 +32,6 @@ tk.Button(root, text="Start/stop", command=start_stop).pack()
 event = asyncio.Event()
 
 # Start background task
-asyncio.get_event_loop_policy().get_event_loop().create_task(counter(event))
+asyncio.get_event_loop_policy().get_event_loop().create_task(counter())
 
 async_mainloop(root)
