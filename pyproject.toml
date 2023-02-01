@@ -29,7 +29,7 @@ pytest-timeout = "^2.0.1"
 flake8 = "^5.0.4"
 tkinter-stubs = { url = "https://github.com/insolor/tkinter-stubs/releases/download/0.1.0/tkinter_stubs-0.1.0-py3-none-any.whl" }
 black = "^23.1.0"
-isort = "^5.11.4"
+isort = "^5.11.5"
 
 [tool.poetry.extras]
 examples = ["httpx", "Pillow"]
