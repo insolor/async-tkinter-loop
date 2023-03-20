@@ -11,6 +11,8 @@ Implementation of asynchronous `mainloop` for tkinter, the use of which allows u
 It is intended to be as simple to use as possible. No fancy unusual syntax or constructions - just use an alternative
 function instead of `root.mainloop()` and wrap asynchronous handlers into a helper function.
 
+> Please, fill free to [report bugs](https://github.com/insolor/async-tkinter-loop/issues), add [pull requests](https://github.com/insolor/async-tkinter-loop/pulls) or [share your thoughts / ask questions, etc.](https://github.com/insolor/async-tkinter-loop/discussions) about the module.
+
 Based on ideas from:
 
 * my answer on ru.stackoverflow.com: <https://ru.stackoverflow.com/a/1043146>
