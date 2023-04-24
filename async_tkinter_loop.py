@@ -1,3 +1,4 @@
+import _tkinter
 import asyncio
 import tkinter
 from functools import wraps
@@ -13,9 +14,12 @@ async def main_loop(root: tkinter.Tk) -> None:
     :return: nothing
     """
     while True:
+        # Process all pending events
+        while root.dooneevent(_tkinter.DONT_WAIT):
+            pass
+
         try:
             root.winfo_exists()  # Will throw TclError if the main window is destroyed
-            root.update()
         except TclError:
             break
 
