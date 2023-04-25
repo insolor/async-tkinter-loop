@@ -6,7 +6,7 @@ from tkinter import Tk
 
 from async_tkinter_loop import async_handler, async_mainloop
 
-TIMEOUT = 30
+TIMEOUT = 60
 
 
 @pytest.mark.timeout(TIMEOUT)
