@@ -15,7 +15,7 @@ async def main_loop(root: tkinter.Tk) -> None:
     """
     while True:
         # Process all pending events
-        while root.dooneevent(_tkinter.DONT_WAIT):
+        while root.dooneevent(_tkinter.DONT_WAIT) > 0:
             pass
 
         try:
