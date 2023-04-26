@@ -2,10 +2,6 @@ name: Draft Release
 
 on:
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version'
-        required: true
 
 jobs:
   build:
@@ -21,9 +17,10 @@ jobs:
       - name: Build project
         run: |
           poetry build
+          echo "version=$(poetry version)" >> "$GITHUB_ENV"
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
-          tag_name: ${{ github.event.inputs.version }}
+          tag_name: ${{ env.version }}
           draft: true
