@@ -22,5 +22,5 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: dist/*
-          tag_name: ${{ env.version }}-test
+          tag_name: ${{ env.version }}
           draft: true
