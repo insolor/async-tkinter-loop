@@ -1,7 +1,11 @@
 # Similar projects
 
-* [Starwort/asynctk](https://github.com/Starwort/asynctk) ([on PyPi](https://pypi.org/project/asynctk/)) - tries to wrap all widgets and make all their methods asyncroneous. Most recent commit: Oct 31, 2021.
-* [gottadiveintopython/asynctkinter](https://github.com/gottadiveintopython/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/)) - looks like an asyncroneous framework itself (like trio). Most recent commit: Sep 20, 2022.
+* [Starwort/asynctk](https://github.com/Starwort/asynctk) ([on PyPi](https://pypi.org/project/asynctk/)) - tries to wrap all widgets and make all their methods asyncroneous.  
+   Most recent commit: Oct 31, 2021.  
+   GPL v3 license.
+* [gottadiveintopython/asynctkinter](https://github.com/gottadiveintopython/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/)) - looks like an asyncroneous framework itself (like [trio](https://github.com/python-trio/trio)).  
+   Most recent commit: Sep 20, 2022.  
+   MIT License.
 
 The latter two projects use old `asyncio` code (from before `async`/`await` keyword addition):
 
