@@ -159,11 +159,3 @@ async_mainloop(root)
 ```
 
 More examples see in the [`examples`](https://github.com/insolor/async-tkinter-loop/tree/main/examples) directory.
-
-
-## Similar projects
-
-* [Starwort/asynctk](https://github.com/Starwort/asynctk) ([on PyPi](https://pypi.org/project/asynctk/))
-* [gottadiveintopython/asynctkinter](https://github.com/gottadiveintopython/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/))
-* [Lucretiel/tkinter-async](https://github.com/Lucretiel/tkinter-async)
-* [fluentpython/asyncio-tkinter](https://github.com/fluentpython/asyncio-tkinter)
