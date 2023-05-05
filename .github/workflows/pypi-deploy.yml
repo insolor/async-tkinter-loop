@@ -10,17 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install poetry
+      run: pipx install poetry
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: 3.7
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install poetry
+        cache: "poetry"
+        cache-dependency-path: poetry.lock
+
     - name: Build and publish on pypi.org
       env:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
         PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: |
-        poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+      run: poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
