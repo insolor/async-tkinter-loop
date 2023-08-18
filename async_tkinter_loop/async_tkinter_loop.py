@@ -26,7 +26,7 @@ async def main_loop(root: tkinter.Tk) -> None:
         await asyncio.sleep(0.01)
 
 
-def _get_event_loop() -> asyncio.AbstractEventLoop:
+def get_event_loop() -> asyncio.AbstractEventLoop:
     """
     A helper function to get event loop using current event loop policy
     :return: event loop
@@ -40,7 +40,7 @@ def async_mainloop(root: tkinter.Tk) -> None:
     :param root: tkinter root object
     :return: nothing
     """
-    _get_event_loop().run_until_complete(main_loop(root))
+    get_event_loop().run_until_complete(main_loop(root))
 
 
 def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
@@ -84,6 +84,6 @@ def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *arg
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        _get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
+        get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
