@@ -562,4 +562,4 @@ examples = ["Pillow", "httpx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "30b096d6fb62db20edb8cc419e8119bc63d5cab40f8f627b486e307410835fc1"
+content-hash = "c5edf309588851ce09170e48390c7e0854f8add001447f1eba0fcbe105329c8f"
