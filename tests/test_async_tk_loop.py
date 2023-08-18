@@ -1,8 +1,8 @@
 import asyncio
+from tkinter import Tk
 from unittest.mock import Mock
 
 import pytest
-from tkinter import Tk
 
 from async_tkinter_loop import async_handler, async_mainloop
 

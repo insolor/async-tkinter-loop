@@ -1,1 +1,1 @@
-from .async_tkinter_loop import async_mainloop, async_handler, get_event_loop
+from .async_tkinter_loop import async_handler, async_mainloop, get_event_loop

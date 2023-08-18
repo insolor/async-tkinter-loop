@@ -1,10 +1,10 @@
-import _tkinter
 import asyncio
 import tkinter
 from functools import wraps
+from tkinter import TclError
 from typing import Any, Callable, Coroutine
 
-from tkinter import TclError
+import _tkinter
 
 
 async def main_loop(root: tkinter.Tk) -> None:
