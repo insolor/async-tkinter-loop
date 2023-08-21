@@ -29,6 +29,7 @@ pytest-timeout = "^2.0.1"
 flake8 = "^5.0.4"
 black = "^23.3.0"
 isort = "^5.11.5"
+customtkinter = "^5.2.0"
 
 [tool.poetry.extras]
 examples = ["httpx", "Pillow", "customtkinter"]

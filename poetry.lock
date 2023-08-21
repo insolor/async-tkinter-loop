@@ -174,7 +174,7 @@ toml = ["tomli"]
 name = "customtkinter"
 version = "5.2.0"
 description = "Create modern looking GUIs with Python"
-optional = true
+optional = false
 python-versions = ">=3.7"
 files = [
     {file = "customtkinter-5.2.0-py3-none-any.whl", hash = "sha256:f8b2db189959033539884d7faff99ebbb654c18097d761ed844180e32f0b5929"},
@@ -188,7 +188,7 @@ darkdetect = "*"
 name = "darkdetect"
 version = "0.8.0"
 description = "Detect OS Dark Mode from Python"
-optional = true
+optional = false
 python-versions = ">=3.6"
 files = [
     {file = "darkdetect-0.8.0-py3-none-any.whl", hash = "sha256:a7509ccf517eaad92b31c214f593dbcf138ea8a43b2935406bbd565e15527a85"},
@@ -590,4 +590,4 @@ examples = ["Pillow", "customtkinter", "httpx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "7947c61df06aedf2b948a680300acdcdeb897e2560cba03e9997fb83dea03489"
+content-hash = "6415914608932dceba38cc69b43e710f9371a89c3cc8977a39c936b89ab78bd8"
