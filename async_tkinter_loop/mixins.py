@@ -11,6 +11,8 @@ class AsyncTk:
 
 class AsyncCTk(AsyncTk):
     def async_mainloop(self):
+        # Based on the code from CustomTkinter by Tom Schimansky
+        # Source https://github.com/TomSchimansky/CustomTkinter/blob/d719950f80eb2768db96bd4cc627523e99603b1b/customtkinter/windows/ctk_tk.py#L155
         if not self._window_exists:
             if sys.platform.startswith("win"):
                 self._windows_set_titlebar_color(self._get_appearance_mode())
