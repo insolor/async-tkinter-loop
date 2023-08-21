@@ -24,5 +24,5 @@ def test_destroy_ctk():
         pass
 
     app = App()
-    app.destroy()
+    app.after(100, app.destroy)
     app.async_mainloop()
