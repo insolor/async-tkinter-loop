@@ -1,3 +1,7 @@
+"""
+A simple example how to use async code with CustomTkinter
+"""
+
 import asyncio
 
 import customtkinter
@@ -6,7 +10,7 @@ from async_tkinter_loop import async_handler
 from async_tkinter_loop.mixins import AsyncCTk
 
 
-class App(AsyncCTk, customtkinter.CTk):
+class App(customtkinter.CTk, AsyncCTk):  # <-- add AsyncCTk as the second parent class
     def __init__(self):
         super().__init__()
         self.geometry("600x500")
@@ -19,7 +23,7 @@ class App(AsyncCTk, customtkinter.CTk):
         self.label = customtkinter.CTkLabel(self, text="")
         self.label.grid(row=0, column=1, padx=20, pady=10)
 
-    @async_handler
+    @async_handler  # <-- decorate an asynchronous method or function with @async_handler decorator
     async def button_click(self):
         i = 0
         while True:
@@ -29,4 +33,4 @@ class App(AsyncCTk, customtkinter.CTk):
 
 
 app = App()
-app.mainloop()
+app.async_mainloop()  # <-- call .async_mainloop() method instead of .mainloop()

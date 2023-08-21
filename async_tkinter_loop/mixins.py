@@ -5,12 +5,12 @@ from async_tkinter_loop import async_mainloop
 
 
 class AsyncTk:
-    def mainloop(self: tkinter.Tk):
+    def async_mainloop(self: tkinter.Tk):
         async_mainloop(self)
 
 
 class AsyncCTk(AsyncTk):
-    def mainloop(self):
+    def async_mainloop(self):
         if not self._window_exists:
             if sys.platform.startswith("win"):
                 self._windows_set_titlebar_color(self._get_appearance_mode())
@@ -21,4 +21,4 @@ class AsyncCTk(AsyncTk):
 
             self._window_exists = True
 
-        super().mainloop()
+        super().async_mainloop()
