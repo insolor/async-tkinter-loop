@@ -589,5 +589,5 @@ examples = ["Pillow", "customtkinter", "httpx"]
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^3.8.1"
-content-hash = "6415914608932dceba38cc69b43e710f9371a89c3cc8977a39c936b89ab78bd8"
+python-versions = "^3.8"
+content-hash = "573b61ac1c8b9a12aec89c9f66177509c5988c8de510978aec46d00953431991"
