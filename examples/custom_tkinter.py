@@ -10,7 +10,7 @@ from async_tkinter_loop import async_handler
 from async_tkinter_loop.mixins import AsyncCTk
 
 
-class App(customtkinter.CTk, AsyncCTk):  # <-- add AsyncCTk as the second parent class
+class App(customtkinter.CTk, AsyncCTk):  # <-- add AsyncCTk as a second parent class
     def __init__(self):
         super().__init__()
         self.geometry("600x500")
@@ -23,7 +23,7 @@ class App(customtkinter.CTk, AsyncCTk):  # <-- add AsyncCTk as the second parent
         self.label = customtkinter.CTkLabel(self, text="")
         self.label.grid(row=0, column=1, padx=20, pady=10)
 
-    @async_handler  # <-- decorate an asynchronous method or function with @async_handler decorator
+    @async_handler  # <-- add @async_handler decorator to use the method as a handler
     async def button_click(self):
         i = 0
         while True:
