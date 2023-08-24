@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "async-tkinter-loop"
-version = "0.9.0"
+version = "0.9.1"
 description = "Asynchronous mainloop implementation for tkinter"
 authors = ["insolor <insolor@gmail.com>"]
 license = "MIT"
