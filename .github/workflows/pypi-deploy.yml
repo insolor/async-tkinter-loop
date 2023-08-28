@@ -21,6 +21,9 @@ jobs:
         cache: "poetry"
         cache-dependency-path: poetry.lock
 
+    - name: Install dependencies
+      run: poetry install --without docs
+
     - name: Build and publish on pypi.org
       env:
         PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
