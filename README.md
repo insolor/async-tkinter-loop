@@ -1,6 +1,7 @@
 # Asynchronous Tkinter Mainloop
 
 [![Python tests](https://github.com/insolor/async-tkinter-loop/actions/workflows/python-tests.yml/badge.svg)](https://github.com/insolor/async-tkinter-loop/actions/workflows/python-tests.yml)
+[![Documentation](https://github.com/insolor/async-tkinter-loop/actions/workflows/deploy-docs.yml/badge.svg)](https://insolor.github.io/async-tkinter-loop/)
 [![Coverage Status](https://coveralls.io/repos/github/insolor/async-tkinter-loop/badge.svg?branch=main)](https://coveralls.io/github/insolor/async-tkinter-loop?branch=main)
 [![Maintainability](https://api.codeclimate.com/v1/badges/2566146b14ef72177613/maintainability)](https://codeclimate.com/github/insolor/async-tkinter-loop/maintainability)
 [![PyPI](https://img.shields.io/pypi/v/async-tkinter-loop)](https://pypi.org/project/async-tkinter-loop/)
