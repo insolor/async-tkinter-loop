@@ -1,0 +1,4 @@
+site_name: Async-tkinter-loop documentation
+
+theme:
+  name: "material"
