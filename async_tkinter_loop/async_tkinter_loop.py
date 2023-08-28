@@ -1,17 +1,19 @@
+import _tkinter
 import asyncio
 import tkinter
 from functools import wraps
-from tkinter import TclError
 from typing import Any, Callable, Coroutine
 
-import _tkinter
+from tkinter import TclError
 
 
 async def main_loop(root: tkinter.Tk) -> None:
     """
-    An asynchronous implementation of tkinter mainloop
-    :param root: tkinter root object
-    :return: nothing
+    An asynchronous implementation of tkinter mainloop.
+    The function is not intended to be called directly from your code.
+
+    Args:
+        root: tkinter root window object
     """
     while True:
         # Process all pending events
@@ -28,58 +30,68 @@ async def main_loop(root: tkinter.Tk) -> None:
 
 def get_event_loop() -> asyncio.AbstractEventLoop:
     """
-    A helper function to get event loop using current event loop policy
-    :return: event loop
+    A helper function which returns an event loop using current event loop policy.
+
+    Returns:
+        event loop
     """
     return asyncio.get_event_loop_policy().get_event_loop()
 
 
 def async_mainloop(root: tkinter.Tk) -> None:
     """
-    A synchronous function to run asynchronous main_loop function
-    :param root: tkinter root object
-    :return: nothing
+    A function, which is a substitute to the standard `root.mainloop()`.
+
+    Args:
+        root: tkinter root object
     """
     get_event_loop().run_until_complete(main_loop(root))
 
 
 def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
     """
-    Helper function to pass async functions as command handlers (e.g. button click handlers) or event handlers
+    A helper function which allows to use async functions as command handlers (e.g. button click handlers) or event
+    handlers.
 
-    :param async_function: async function
-    :param args: positional parameters which will be passed to the async function
-    :param kwargs: keyword parameters which will be passed to the async function
-    :return: function
+    Args:
+        async_function: async function
+        args: positional parameters which will be passed to the async function
+        kwargs: keyword parameters which will be passed to the async function
 
-    Examples: ::
+    Returns:
+        A sync function, which runs the original async function in an async event loop.
 
-        async def some_async_function():
-            print("Wait...")
-            await asyncio.sleep(0.5)
-            print("Done!")
+    Usage examples:
+    ```python
+    from async_tkinter_loop import async_handler
 
-        button = tk.Button("Press me", command=async_handler(some_async_function))
+    async def some_async_function():
+        print("Wait...")
+        await asyncio.sleep(0.5)
+        print("Done!")
 
-        # ----
+    button = tk.Button("Press me", command=async_handler(some_async_function))
 
-        async def some_async_function(event):
-            print("Wait...")
-            await asyncio.sleep(0.5)
-            print("Done!")
+    # ----
 
-        root.bind("<1>", command=async_handler(some_async_function))
+    async def some_async_function(event):
+        print("Wait...")
+        await asyncio.sleep(0.5)
+        print("Done!")
 
-        # ----
+    root.bind("<1>", command=async_handler(some_async_function))
 
-        # Also, it can be used as a decorator
-        @async_handler
-        async def some_async_function():
-            print("Wait...")
-            await asyncio.sleep(0.5)
-            print("Done!")
+    # ----
 
-        button = tk.Button("Press me", command=some_async_function)
+    # Also, it can be used as a decorator
+    @async_handler
+    async def some_async_function():
+        print("Wait...")
+        await asyncio.sleep(0.5)
+        print("Done!")
+
+    button = tk.Button("Press me", command=some_async_function)
+    ```
     """
 
     @wraps(async_function)
