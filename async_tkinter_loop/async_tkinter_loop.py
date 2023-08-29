@@ -63,6 +63,7 @@ def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *arg
 
     Usage examples:
     ```python
+    import tkinter as tk
     from async_tkinter_loop import async_handler
 
     async def some_async_function():
