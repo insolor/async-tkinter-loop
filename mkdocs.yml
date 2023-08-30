@@ -14,3 +14,10 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Installation for development: development.md
+  - Library API: api.md
+  - Similar projects: similar_projects.md
