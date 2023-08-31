@@ -2,6 +2,7 @@ site_name: Async-tkinter-loop documentation
 
 theme:
   name: "material"
+  custom_dir: overrides
 
 plugins:
   - mkdocstrings
@@ -21,3 +22,8 @@ nav:
   - Installation for development: development.md
   - Library API: api.md
   - Similar projects: similar_projects.md
+
+extra:
+  analytics:
+    provider: yandex-metrika
+    property: 94803377
