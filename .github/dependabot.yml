@@ -11,6 +11,14 @@ updates:
           - "flake8*"
           - "black"
           - "isort"
+      examples:
+        patterns:
+          - "Pillow"
+          - "httpx"
+          - "customtkinter"
+      docs:
+        patterns:
+          - "mkdocs*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
