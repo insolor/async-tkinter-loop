@@ -20,7 +20,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 Pillow = {version = ">=9.1.1,<11.0.0", optional = true}
-httpx = {version = ">=0.23.1,<0.25.0", optional = true}
+httpx = {version = ">=0.23.1,<0.26.0", optional = true}
 customtkinter = {version = "^5.2.0", optional = true}
 
 [tool.poetry.group.dev.dependencies]
