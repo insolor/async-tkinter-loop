@@ -23,7 +23,7 @@ def test_destroy_tk():
     app.async_mainloop()
 
 
-@pytest.mark.skipif(customtkinter == None, "Skipped because customtkinter is incompatible with Python 3.12")
+@pytest.mark.skipif(customtkinter is None, reason="Skipped because customtkinter is incompatible with Python 3.12")
 @pytest.mark.timeout(TIMEOUT)
 def test_destroy_ctk():
     class App(customtkinter.CTk, AsyncCTk):
