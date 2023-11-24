@@ -1,10 +1,11 @@
+import _tkinter
 import asyncio
 import tkinter
 from functools import wraps
-from tkinter import TclError
 from typing import Any, Callable, Coroutine
 
-import _tkinter
+from tkinter import TclError
+from typing_extensions import ParamSpec
 
 
 async def main_loop(root: tkinter.Tk) -> None:
@@ -48,7 +49,10 @@ def async_mainloop(root: tkinter.Tk) -> None:
     get_event_loop().run_until_complete(main_loop(root))
 
 
-def async_handler(async_function: Callable[..., Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[..., None]:
+P = ParamSpec("P")
+
+
+def async_handler(async_function: Callable[P, Coroutine[Any, Any, None]], *args, **kwargs) -> Callable[P, None]:
     """
     A helper function which allows to use async functions as command handlers (e.g. button click handlers) or event
     handlers.
