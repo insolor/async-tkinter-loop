@@ -28,9 +28,7 @@ typing-extensions = "*"
 pytest = ">=7.4,<9.0"
 pytest-cov = ">=4.1,<6.0"
 pytest-timeout = "^2.0.1"
-flake8 = "^5.0.4"
-black = ">=23.3,<25.0"
-isort = "^5.11.5"
+ruff = "^0.4.7"
 customtkinter = "^5.2.1"
 
 [tool.poetry.group.docs.dependencies]
@@ -45,8 +43,16 @@ examples = ["httpx", "Pillow", "customtkinter"]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.black]
+[tool.ruff]
 line-length = 120
 
-[tool.isort]
-profile = "black"
+[tool.ruff.lint]
+select = ["ALL"]
+fixable = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "S101",  # Don't warn about using of asserts in tests
+    "ANN201",  # Don't warn on missing return type annotation in tests
+    "D",  # Don't warn about missing documentation in tests
+]
