@@ -1,15 +1,20 @@
 #!/bin/env python3
-"""An example how to interact with processes asynchronously and show their output in a tkinter window
 """
+An example how to interact with processes asynchronously and show their output in a tkinter window
+"""
+
+from __future__ import annotations
 
 import asyncio
 import platform
 import tkinter as tk
-from asyncio.subprocess import Process
 from tkinter.scrolledtext import ScrolledText
-from typing import Optional
+from typing import TYPE_CHECKING
 
 from async_tkinter_loop import async_handler, async_mainloop
+
+if TYPE_CHECKING:
+    from asyncio.subprocess import Process
 
 root = tk.Tk()
 root.geometry("600x400")
@@ -18,7 +23,7 @@ text = ScrolledText(root, width=1, height=1)
 text.pack(fill=tk.BOTH, expand=True)
 text.tag_config("red_text", foreground="red")
 
-ping_subprocess: Optional[Process] = None
+ping_subprocess: Process | None = None
 
 ping_command = ["ping", "-t"] if platform.system() == "Windows" else ["ping"]
 
