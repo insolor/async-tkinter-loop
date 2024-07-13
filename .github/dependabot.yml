@@ -9,6 +9,7 @@ updates:
         patterns:
           - "pytest*"
           - "flake8*"
+          - "ruff"
           - "black"
           - "isort"
       examples:
