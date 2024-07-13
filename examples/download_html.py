@@ -12,7 +12,7 @@ async def load_data():
     text.insert(tk.END, "Loading...")
     button.config(state=tk.DISABLED)
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=30) as client:
         response = await client.get("https://python.org", follow_redirects=True)
         text.delete(1.0, tk.END)
 

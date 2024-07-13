@@ -12,7 +12,7 @@ async def load_image(url):
     button.config(state=tk.DISABLED)
     label.config(text="Loading...", image="")
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=30) as client:
         response = await client.get(url, follow_redirects=True)
         if response.status_code != 200:
             label.config(text=f"HTTP error {response.status_code}")
