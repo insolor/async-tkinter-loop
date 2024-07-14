@@ -9,8 +9,6 @@ updates:
         patterns:
           - "pytest*"
           - "ruff"
-          - "black"
-          - "isort"
       examples:
         patterns:
           - "Pillow"
