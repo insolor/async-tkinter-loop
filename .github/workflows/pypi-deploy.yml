@@ -24,8 +24,8 @@ jobs:
     - name: Install dependencies
       run: poetry install --without docs
 
-    - name: Build and publish on pypi.org
-      env:
-        PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
-        PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
-      run: poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+    - name: Build packages
+      run: poetry build
+
+    - name: Publish on pypi.org
+      uses: pypa/gh-action-pypi-publish@v1.11.0
