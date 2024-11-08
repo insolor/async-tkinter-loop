@@ -32,6 +32,8 @@ tk.Button(root, text="Start/stop", command=start_stop).pack()
 event = asyncio.Event()
 
 # Start background task
-asyncio.get_event_loop_policy().get_event_loop().create_task(counter())
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+task = loop.create_task(counter())
 
 async_mainloop(root)

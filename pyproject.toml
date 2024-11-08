@@ -72,4 +72,5 @@ fixable = ["ALL"]
     "S311",
     "PL",
     "INP001",
+    "RUF006",
 ]
