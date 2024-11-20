@@ -1,11 +1,30 @@
 site_name: Async-tkinter-loop documentation
 
 theme:
-  name: "material"
+  name: material
+  language: en
+  features:
+    - content.action.edit
   custom_dir: overrides
 
 plugins:
   - mkdocstrings
+  - i18n:
+      docs_structure: folder
+      fallback_to_default: true
+      languages:
+        - build: true
+          default: true
+          locale: en
+          name: English
+        - build: true
+          default: false
+          locale: ru
+          name: Русский
+      reconfigure_material: true
+      reconfigure_search: true
+  - git-revision-date-localized:
+      enabled: true
 
 markdown_extensions:
   - pymdownx.highlight:

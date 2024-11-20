@@ -264,6 +264,16 @@ tomli = {version = "*", optional = true, markers = "python_full_version <= \"3.1
 toml = ["tomli"]
 
 [[package]]
+name = "csscompressor"
+version = "0.9.5"
+description = "A python port of YUI CSS Compressor"
+optional = false
+python-versions = "*"
+files = [
+    {file = "csscompressor-0.9.5.tar.gz", hash = "sha256:afa22badbcf3120a4f392e4d22f9fff485c044a1feda4a950ecc5eba9dd31a05"},
+]
+
+[[package]]
 name = "customtkinter"
 version = "5.2.2"
 description = "Create modern looking GUIs with Python"
@@ -324,6 +334,38 @@ python-dateutil = ">=2.8.1"
 dev = ["flake8", "markdown", "twine", "wheel"]
 
 [[package]]
+name = "gitdb"
+version = "4.0.11"
+description = "Git Object Database"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "gitdb-4.0.11-py3-none-any.whl", hash = "sha256:81a3407ddd2ee8df444cbacea00e2d038e40150acfa3001696fe0dcf1d3adfa4"},
+    {file = "gitdb-4.0.11.tar.gz", hash = "sha256:bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"},
+]
+
+[package.dependencies]
+smmap = ">=3.0.1,<6"
+
+[[package]]
+name = "gitpython"
+version = "3.1.43"
+description = "GitPython is a Python library used to interact with Git repositories"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "GitPython-3.1.43-py3-none-any.whl", hash = "sha256:eec7ec56b92aad751f9912a73404bc02ba212a23adb2c7098ee668417051a1ff"},
+    {file = "GitPython-3.1.43.tar.gz", hash = "sha256:35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"},
+]
+
+[package.dependencies]
+gitdb = ">=4.0.1,<5"
+
+[package.extras]
+doc = ["sphinx (==4.3.2)", "sphinx-autodoc-typehints", "sphinx-rtd-theme", "sphinxcontrib-applehelp (>=1.0.2,<=1.0.4)", "sphinxcontrib-devhelp (==1.0.2)", "sphinxcontrib-htmlhelp (>=2.0.0,<=2.0.1)", "sphinxcontrib-qthelp (==1.0.3)", "sphinxcontrib-serializinghtml (==1.1.5)"]
+test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock", "mypy", "pre-commit", "pytest (>=7.3.1)", "pytest-cov", "pytest-instafail", "pytest-mock", "pytest-sugar", "typing-extensions"]
+
+[[package]]
 name = "griffe"
 version = "1.5.1"
 description = "Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API."
@@ -346,6 +388,16 @@ python-versions = ">=3.7"
 files = [
     {file = "h11-0.14.0-py3-none-any.whl", hash = "sha256:e3fe4ac4b851c468cc8363d500db52c2ead036020723024a109d37346efaa761"},
     {file = "h11-0.14.0.tar.gz", hash = "sha256:8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"},
+]
+
+[[package]]
+name = "htmlmin2"
+version = "0.1.13"
+description = "An HTML Minifier"
+optional = false
+python-versions = "*"
+files = [
+    {file = "htmlmin2-0.1.13-py3-none-any.whl", hash = "sha256:75609f2a42e64f7ce57dbff28a39890363bde9e7e5885db633317efbdf8c79a2"},
 ]
 
 [[package]]
@@ -457,6 +509,16 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
+
+[[package]]
+name = "jsmin"
+version = "3.0.1"
+description = "JavaScript minifier."
+optional = false
+python-versions = "*"
+files = [
+    {file = "jsmin-3.0.1.tar.gz", hash = "sha256:c0959a121ef94542e807a674142606f7e90214a2b3d1eb17300244bbb5cc2bfc"},
+]
 
 [[package]]
 name = "markdown"
@@ -622,6 +684,28 @@ platformdirs = ">=2.2.0"
 pyyaml = ">=5.1"
 
 [[package]]
+name = "mkdocs-git-revision-date-localized-plugin"
+version = "1.3.0"
+description = "Mkdocs plugin that enables displaying the localized date of the last git modification of a markdown file."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs_git_revision_date_localized_plugin-1.3.0-py3-none-any.whl", hash = "sha256:c99377ee119372d57a9e47cff4e68f04cce634a74831c06bc89b33e456e840a1"},
+    {file = "mkdocs_git_revision_date_localized_plugin-1.3.0.tar.gz", hash = "sha256:439e2f14582204050a664c258861c325064d97cdc848c541e48bb034a6c4d0cb"},
+]
+
+[package.dependencies]
+babel = ">=2.7.0"
+GitPython = "*"
+mkdocs = ">=1.0"
+pytz = "*"
+
+[package.extras]
+all = ["GitPython", "babel (>=2.7.0)", "click", "codecov", "mkdocs (>=1.0)", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkdocs-material", "mkdocs-static-i18n", "pytest", "pytest-cov", "pytz"]
+base = ["GitPython", "babel (>=2.7.0)", "mkdocs (>=1.0)", "pytz"]
+dev = ["click", "codecov", "mkdocs-gen-files", "mkdocs-git-authors-plugin", "mkdocs-material", "mkdocs-static-i18n", "pytest", "pytest-cov"]
+
+[[package]]
 name = "mkdocs-material"
 version = "9.5.47"
 description = "Documentation that simply works"
@@ -660,6 +744,54 @@ files = [
     {file = "mkdocs_material_extensions-1.3.1-py3-none-any.whl", hash = "sha256:adff8b62700b25cb77b53358dad940f3ef973dd6db797907c49e3c2ef3ab4e31"},
     {file = "mkdocs_material_extensions-1.3.1.tar.gz", hash = "sha256:10c9511cea88f568257f960358a467d12b970e1f7b2c0e5fb2bb48cab1928443"},
 ]
+
+[[package]]
+name = "mkdocs-minify-plugin"
+version = "0.8.0"
+description = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs-minify-plugin-0.8.0.tar.gz", hash = "sha256:bc11b78b8120d79e817308e2b11539d790d21445eb63df831e393f76e52e753d"},
+    {file = "mkdocs_minify_plugin-0.8.0-py3-none-any.whl", hash = "sha256:5fba1a3f7bd9a2142c9954a6559a57e946587b21f133165ece30ea145c66aee6"},
+]
+
+[package.dependencies]
+csscompressor = ">=0.9.5"
+htmlmin2 = ">=0.1.13"
+jsmin = ">=3.0.1"
+mkdocs = ">=1.4.1"
+
+[[package]]
+name = "mkdocs-redirects"
+version = "1.2.2"
+description = "A MkDocs plugin for dynamic page redirects to prevent broken links"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs_redirects-1.2.2-py3-none-any.whl", hash = "sha256:7dbfa5647b79a3589da4401403d69494bd1f4ad03b9c15136720367e1f340ed5"},
+    {file = "mkdocs_redirects-1.2.2.tar.gz", hash = "sha256:3094981b42ffab29313c2c1b8ac3969861109f58b2dd58c45fc81cd44bfa0095"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.1.1"
+
+[[package]]
+name = "mkdocs-static-i18n"
+version = "1.2.3"
+description = "MkDocs i18n plugin using static translation markdown files"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "mkdocs_static_i18n-1.2.3-py3-none-any.whl", hash = "sha256:e6f2f3c53b657d7632015b32dea3c64d0b80a7a8d6cde0334ca8f66f9e33b52f"},
+    {file = "mkdocs_static_i18n-1.2.3.tar.gz", hash = "sha256:7ccf4da6dd29570ec49cd863ebff6fef9cb82dbb1cb85249bdf744e8d839c914"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.5.2"
+
+[package.extras]
+material = ["mkdocs-material (>=9.2.5)"]
 
 [[package]]
 name = "mkdocstrings"
@@ -972,6 +1104,17 @@ files = [
 six = ">=1.5"
 
 [[package]]
+name = "pytz"
+version = "2024.2"
+description = "World timezone definitions, modern and historical"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pytz-2024.2-py2.py3-none-any.whl", hash = "sha256:31c7c1817eb7fae7ca4b8c7ee50c72f93aa2dd863de768e1ef4245d426aa0725"},
+    {file = "pytz-2024.2.tar.gz", hash = "sha256:2aa355083c50a0f93fa581709deac0c9ad65cca8a9e9beac660adcbd493c798a"},
+]
+
+[[package]]
 name = "pyyaml"
 version = "6.0.2"
 description = "YAML parser and emitter for Python"
@@ -1210,6 +1353,17 @@ files = [
 ]
 
 [[package]]
+name = "smmap"
+version = "5.0.1"
+description = "A pure Python implementation of a sliding window memory map manager"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "smmap-5.0.1-py3-none-any.whl", hash = "sha256:e6d8668fa5f93e706934a62d7b4db19c8d9eb8cf2adbb75ef1b675aa332b69da"},
+    {file = "smmap-5.0.1.tar.gz", hash = "sha256:dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"},
+]
+
+[[package]]
 name = "sniffio"
 version = "1.3.1"
 description = "Sniff out which async library your code is running under"
@@ -1356,4 +1510,4 @@ examples = ["Pillow", "customtkinter", "httpx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "10ca714683ba7355908c977e35173548475c0d9faae772d15b3550def8b62185"
+content-hash = "f64edef3fdab5e597a8ac2f48f55a5298f1bbfbff29204cd646b967def4ab123"
