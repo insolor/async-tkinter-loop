@@ -1,4 +1,5 @@
 site_name: Async-tkinter-loop documentation
+repo_url: https://github.com/insolor/async-tkinter-loop
 
 theme:
   name: material
@@ -36,11 +37,10 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Home: index.md
-  - Installation: installation.md
-  - Installation for development: development.md
-  - Library API: api.md
-  - Similar projects: similar_projects.md
+  - index.md
+  - installation.md
+  - api.md
+  - similar_projects.md
 
 extra:
   analytics:
