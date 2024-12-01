@@ -28,4 +28,4 @@ jobs:
       run: poetry build
 
     - name: Publish on pypi.org
-      uses: pypa/gh-action-pypi-publish@v1.11.0
+      uses: pypa/gh-action-pypi-publish@v1.12.2
