@@ -1,8 +1,9 @@
 import _tkinter
 import asyncio
 import tkinter as tk
+from collections.abc import Coroutine
 from functools import wraps
-from typing import Any, Callable, Coroutine
+from typing import Any, Callable
 
 from typing_extensions import ParamSpec
 
