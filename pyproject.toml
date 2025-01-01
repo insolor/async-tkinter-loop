@@ -33,7 +33,7 @@ customtkinter = "^5.2.1"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.5.2"
-mkdocstrings = {extras = ["python"], version = ">=0.22,<0.27"}
+mkdocstrings = {extras = ["python"], version = ">=0.22,<0.28"}
 mkdocs-material = "^9.2.5"
 
 [tool.poetry.extras]
