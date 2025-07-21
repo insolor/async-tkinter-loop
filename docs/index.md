@@ -1,4 +1,3 @@
-# Welcome
+# Overview
 
-This site contains the project documentation for the
-`async-tkinter-loop` project.
+--8<-- "README.md"
