@@ -1,5 +1,4 @@
-"""A simple example how to use async code with CustomTkinter
-"""
+"""A simple example how to use async code with CustomTkinter"""
 
 import asyncio
 
