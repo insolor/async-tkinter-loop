@@ -9,8 +9,8 @@ on:
       - 'pyproject.toml'
       - 'poetry.lock'
       - 'mkdocs.yml'
-      - 'docs/*'
-      - 'async-tkinter-loop/*'
+      - 'docs/**'
+      - 'async-tkinter-loop/**'
 
 permissions:
   contents: write
