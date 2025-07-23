@@ -54,8 +54,8 @@ P = ParamSpec("P")
 
 def async_handler(
     async_function: Callable[P, Coroutine[Any, Any, None]],
-    *args: Any,
-    **kwargs: Any,
+    *args: Any,  # noqa: ANN401
+    **kwargs: Any,  # noqa: ANN401
 ) -> Callable[P, None]:
     """
     A helper function which allows to use async functions as command handlers (e.g. button click handlers) or event
