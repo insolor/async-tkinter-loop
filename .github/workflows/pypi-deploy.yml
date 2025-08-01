@@ -29,7 +29,7 @@ jobs:
       run: uv sync --no-group docs
 
     - name: Build packages
-      run: sync build
+      run: uv build
 
     - name: Publish on pypi.org
       uses: pypa/gh-action-pypi-publish@v1.13.0
