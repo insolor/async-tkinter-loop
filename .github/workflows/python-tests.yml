@@ -51,7 +51,7 @@ jobs:
         sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
 
     - name: Install dependencies
-      run: uv sync --without docs
+      run: uv sync --no-group docs
 
     - name: Lint with ruff
       run: uv run ruff check . --statistics

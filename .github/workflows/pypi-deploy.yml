@@ -26,7 +26,7 @@ jobs:
         version: latest
 
     - name: Install dependencies
-      run: uv sync --without docs
+      run: uv sync --no-group docs
 
     - name: Build packages
       run: sync build
