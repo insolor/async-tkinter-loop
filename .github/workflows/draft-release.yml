@@ -17,12 +17,13 @@ jobs:
           version: latest
 
       - name: Get release version
+        id: fetch-version
         run: |
-          echo "version=$(uv version --short)" >> "$GITHUB_ENV"
+          echo "version=$(uv version --short)" >> $GITHUB_OUTPUT
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ env.version }}
+          tag_name: ${{ steps.fetch-version.outputs.version }}
           draft: true
           generate_release_notes: true
