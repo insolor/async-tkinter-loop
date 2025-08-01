@@ -39,7 +39,7 @@ jobs:
         version: latest
 
     - name: Install dependencies
-      run: uv sync --without docs
+      run: uv sync --no-group docs
 
     - name: Lint with ruff
       run: uv run ruff check . --statistics
