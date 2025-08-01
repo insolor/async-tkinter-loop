@@ -25,13 +25,14 @@ jobs:
         run: uv sync --no-group docs
 
       - name: Build project
+        id: build
         run: |
           uv build
-          echo "version=$(uv version --short)" >> "$GITHUB_ENV"
+          echo "version=$(uv version --short)" >> $GITHUB_OUTPUT
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/*
-          tag_name: ${{ env.version }}
+          tag_name: ${{ steps.build.outputs.version }}
           draft: true
