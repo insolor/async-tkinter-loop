@@ -5,7 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'pyproject.toml'
-      - 'poetry.lock'
+      - 'uv.lock'
       - '**.py'
       - '.github/workflows/python-tests.yml'
       
@@ -13,7 +13,7 @@ on:
     branches: [ main ]
     paths:
       - 'pyproject.toml'
-      - 'poetry.lock'
+      - 'uv.lock'
       - '**.py'
       - '.github/workflows/python-tests.yml'
 
@@ -31,15 +31,15 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
-    - name: Install poetry
-      run: pipx install poetry
-
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
-        cache: "poetry"
-        cache-dependency-path: poetry.lock
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        version: latest
 
     - name: Install system dependencies
       run: |
@@ -51,13 +51,13 @@ jobs:
         sudo /usr/bin/Xvfb $DISPLAY -screen 0 1280x1024x24 &
 
     - name: Install dependencies
-      run: poetry install --without docs
+      run: uv sync --without docs
 
     - name: Lint with ruff
-      run: poetry run ruff check . --statistics
+      run: uv run ruff check . --statistics
 
     - name: Test with pytest
-      run: poetry run pytest --cov=./
+      run: uv run pytest --cov=./
 
     - name: Upload coverage data to coveralls.io
       continue-on-error: true
