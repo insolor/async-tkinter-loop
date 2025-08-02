@@ -22,7 +22,8 @@ async def load_image(url):
             image = ImageTk.PhotoImage(pil_image)
             label.image = image
             label.config(image=image, text="")
-            button.config(state=tk.NORMAL)
+
+        button.config(state=tk.NORMAL)
 
 
 url = "https://picsum.photos/800/640"
