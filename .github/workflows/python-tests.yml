@@ -50,8 +50,7 @@ jobs:
     - name: Upload coverage data to coveralls.io
       continue-on-error: true
       run: |
-        pip install coveralls
-        coveralls --service=github
+        pipx run coveralls
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
