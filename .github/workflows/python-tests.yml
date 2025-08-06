@@ -47,9 +47,26 @@ jobs:
     - name: Test with pytest
       run: poetry run pytest --cov=./
 
-    # - name: Upload coverage data to coveralls.io
-    #   run: |
-    #     pip install coveralls
-    #     coveralls --service=github
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload coverage data to coveralls.io
+      continue-on-error: true
+      run: |
+        pip install coveralls
+        coveralls --service=github
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        COVERALLS_FLAG_NAME: ${{ matrix.python-version }}
+        COVERALLS_PARALLEL: true
+
+  coveralls:
+    name: Indicate completion to coveralls.io
+    needs: test
+    runs-on: ubuntu-latest
+    container: python:3-slim
+    steps:
+    - name: Install coveralls
+      run: pip3 install --upgrade coveralls
+    - name: Finished
+      continue-on-error: true
+      run: coveralls --finish
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
