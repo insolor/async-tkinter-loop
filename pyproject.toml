@@ -26,9 +26,9 @@ typing-extensions = "*"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.4,<9.0"
-pytest-cov = ">=4.1,<7.0"
+pytest-cov = ">=4.1,<8.0"
 pytest-timeout = "^2.0.1"
-ruff = ">=0.4.7,<0.13.0"
+ruff = ">=0.4.7,<0.14.0"
 customtkinter = "^5.2.1"
 
 [tool.poetry.group.docs.dependencies]
