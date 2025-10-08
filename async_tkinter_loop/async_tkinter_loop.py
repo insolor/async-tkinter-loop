@@ -1,9 +1,9 @@
 import _tkinter
 import asyncio
 import tkinter as tk
-from collections.abc import Coroutine
+from collections.abc import Callable, Coroutine
 from functools import wraps
-from typing import Any, Callable
+from typing import Any
 
 from typing_extensions import ParamSpec
 
@@ -31,22 +31,24 @@ async def main_loop(root: tk.Tk) -> None:
 
 def get_event_loop() -> asyncio.AbstractEventLoop:
     """
-    A helper function which returns an event loop using current event loop policy.
+    A helper function which returns a running event loop.
 
     Returns:
         event loop
     """
-    return asyncio.get_event_loop_policy().get_event_loop()
+    return asyncio.get_running_loop()
 
 
-def async_mainloop(root: tk.Tk) -> None:
+def async_mainloop(root: tk.Tk, event_loop: asyncio.AbstractEventLoop | None = None) -> None:
     """
     A function, which is a substitute to the standard `root.mainloop()`.
 
     Args:
         root: tkinter root object
+        event_loop: asyncio event loop (optional)
     """
-    get_event_loop().run_until_complete(main_loop(root))
+    event_loop = event_loop or asyncio.new_event_loop()
+    event_loop.run_until_complete(main_loop(root))
 
 
 P = ParamSpec("P")
@@ -55,6 +57,7 @@ P = ParamSpec("P")
 def async_handler(
     async_function: Callable[P, Coroutine[Any, Any, None]],
     *args: Any,  # noqa: ANN401
+    event_loop: asyncio.AbstractEventLoop | None = None,
     **kwargs: Any,  # noqa: ANN401
 ) -> Callable[P, None]:
     """
@@ -64,6 +67,7 @@ def async_handler(
     Args:
         async_function: async function
         args: positional parameters which will be passed to the async function
+        event_loop: asyncio event loop (optional, for testing purposes)
         kwargs: keyword parameters which will be passed to the async function
 
     Returns:
@@ -102,9 +106,10 @@ def async_handler(
     button = tk.Button("Press me", command=some_async_function)
     ```
     """
+    event_loop = event_loop or get_event_loop()
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
+        event_loop.create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
