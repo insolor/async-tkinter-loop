@@ -36,7 +36,7 @@ def get_event_loop() -> asyncio.AbstractEventLoop:
     Returns:
         event loop
     """
-    return asyncio.get_event_loop()
+    return asyncio.get_running_loop()
 
 
 def async_mainloop(root: tk.Tk, event_loop: asyncio.AbstractEventLoop | None = None) -> None:
@@ -57,6 +57,7 @@ P = ParamSpec("P")
 def async_handler(
     async_function: Callable[P, Coroutine[Any, Any, None]],
     *args: Any,  # noqa: ANN401
+    event_loop: asyncio.AbstractEventLoop | None = None,
     **kwargs: Any,  # noqa: ANN401
 ) -> Callable[P, None]:
     """
@@ -66,6 +67,7 @@ def async_handler(
     Args:
         async_function: async function
         args: positional parameters which will be passed to the async function
+        event_loop: asyncio event loop (optional, for testing purposes)
         kwargs: keyword parameters which will be passed to the async function
 
     Returns:
@@ -104,9 +106,10 @@ def async_handler(
     button = tk.Button("Press me", command=some_async_function)
     ```
     """
+    event_loop = event_loop or get_event_loop()
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        get_event_loop().create_task(async_function(*handler_args, *args, **kwargs))
+        event_loop.create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
