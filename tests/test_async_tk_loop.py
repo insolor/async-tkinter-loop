@@ -59,8 +59,6 @@ def test_async_command_as_decorator():
 def test_async_event_handler_as_decorator():
     root = Tk()
 
-    event_loop = asyncio.new_event_loop()
-
     # @async_handler
     async def on_click(_event):
         await asyncio.sleep(0.1)
