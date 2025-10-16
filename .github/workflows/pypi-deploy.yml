@@ -2,7 +2,8 @@ name: Deploy on pypi.org
 
 on:
   release:
-    types: [published]
+    types: 
+      - published
   workflow_dispatch:
 
 permissions:
@@ -14,21 +15,21 @@ jobs:
     steps:
     - uses: actions/checkout@v5
 
-    - name: Install poetry
-      run: pipx install poetry
-
     - name: Set up Python
       uses: actions/setup-python@v6
       with:
         python-version: 3.x
-        cache: "poetry"
-        cache-dependency-path: poetry.lock
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        version: latest
 
     - name: Install dependencies
-      run: poetry install --without docs
+      run: uv sync --no-group docs
 
     - name: Build packages
-      run: poetry build
+      run: uv build
 
     - name: Publish on pypi.org
       uses: pypa/gh-action-pypi-publish@v1.13.0
