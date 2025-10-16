@@ -110,6 +110,7 @@ def async_handler(
 
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
-        event_loop.create_task(async_function(*handler_args, *args, **kwargs))
+        loop = event_loop or get_event_loop()
+        loop.create_task(async_function(*handler_args, *args, **kwargs))
 
     return wrapper
