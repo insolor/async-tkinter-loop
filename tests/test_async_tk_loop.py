@@ -32,8 +32,10 @@ def test_async_event_handler():
         await asyncio.sleep(0.1)
         root.destroy()
 
-    async_handler(on_click)(Mock("Event"))
-    async_mainloop(root)
+    event_loop = asyncio.new_event_loop()
+    async_handler(on_click, event_loop=event_loop)(Mock("Event"))
+
+    async_mainloop(root, event_loop)
 
 
 @pytest.mark.timeout(TIMEOUT)
