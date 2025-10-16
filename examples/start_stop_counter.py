@@ -19,6 +19,8 @@ root = tk.Tk()
 label = tk.Label(root)
 label.pack()
 
+event = asyncio.Event()
+
 
 def start_stop():
     if event.is_set():
@@ -28,8 +30,6 @@ def start_stop():
 
 
 tk.Button(root, text="Start/stop", command=start_stop).pack()
-
-event = asyncio.Event()
 
 # Start background task
 event_loop = asyncio.new_event_loop()
