@@ -106,8 +106,6 @@ def async_handler(
     button = tk.Button("Press me", command=some_async_function)
     ```
     """
-    event_loop = event_loop or get_event_loop()
-
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
         loop = event_loop or get_event_loop()
