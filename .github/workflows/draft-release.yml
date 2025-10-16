@@ -18,20 +18,13 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: 3.x
-          cache: "poetry"
-          cache-dependency-path: poetry.lock
 
-      - name: Install dependencies
-        run: poetry install --without docs
-
-      - name: Build project
+      - name: Get release version
         run: |
-          poetry build
           echo "version=$(poetry version --short)" >> "$GITHUB_ENV"
 
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/*
           tag_name: ${{ env.version }}
           draft: true
