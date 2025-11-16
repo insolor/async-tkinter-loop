@@ -1,6 +1,6 @@
+import asyncio
 import sys
 import tkinter as tk
-import asyncio
 
 from async_tkinter_loop import async_mainloop
 
