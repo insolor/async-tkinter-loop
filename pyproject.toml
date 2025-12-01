@@ -25,7 +25,7 @@ customtkinter = {version = "^5.2.1", optional = true}
 typing-extensions = "*"
 
 [tool.poetry.group.dev.dependencies]
-pytest = ">=7.4,<9.0"
+pytest = ">=7.4,<10.0"
 pytest-cov = ">=4.1,<8.0"
 pytest-timeout = "^2.0.1"
 ruff = ">=0.4.7,<0.15.0"
