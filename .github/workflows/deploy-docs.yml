@@ -11,6 +11,17 @@ on:
       - 'mkdocs.yml'
       - 'docs/**'
       - 'async-tkinter-loop/**'
+  pull_request:
+    branches:
+      - master
+      - main
+    paths:
+      - '.github/workflows/deploy-docs.yml'
+      - 'pyproject.toml'
+      - 'poetry.lock'
+      - 'mkdocs.yml'
+      - 'docs/**'
+      - 'async-tkinter-loop/**'
 
 permissions:
   contents: write
@@ -32,5 +43,9 @@ jobs:
       - name: Install dependencies
         run: poetry install --only docs
 
+      - name: Build docs
+        run: poetry run mkdocs build
+
       - name: Deploy docs
+        if: github.event_name != 'pull_request'
         run: poetry run mkdocs gh-deploy --force
