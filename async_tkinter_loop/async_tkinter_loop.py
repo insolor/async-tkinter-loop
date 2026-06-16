@@ -53,6 +53,8 @@ def async_mainloop(root: tk.Tk, event_loop: asyncio.AbstractEventLoop | None = N
 
 P = ParamSpec("P")
 
+_tasks = set()
+
 
 def async_handler(
     async_function: Callable[P, Coroutine[Any, Any, None]],
@@ -109,6 +111,8 @@ def async_handler(
     @wraps(async_function)
     def wrapper(*handler_args) -> None:
         loop = event_loop or get_event_loop()
-        loop.create_task(async_function(*handler_args, *args, **kwargs))
+        task = loop.create_task(async_function(*handler_args, *args, **kwargs))
+        _tasks.add(task)
+        task.add_done_callback(_tasks.discard)
 
     return wrapper
