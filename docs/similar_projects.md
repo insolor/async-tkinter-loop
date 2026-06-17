@@ -3,9 +3,10 @@
 * [Starwort/asynctk](https://github.com/Starwort/asynctk) ([on PyPi](https://pypi.org/project/asynctk/)) - tries to wrap all widgets and make all their methods asyncroneous.  
    Most recent commit: October 2021.  
    GPL v3 license.
-* [gottadiveintopython/asynctkinter](https://github.com/gottadiveintopython/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/)) - looks like an asynchronous framework itself (like [trio](https://github.com/python-trio/trio)).  
-   Most recent commit: August 2023.  
+* [asyncgui/asynctkinter](https://github.com/asyncgui/asynctkinter) ([on PyPi](https://pypi.org/project/asynctkinter/)) - looks like an asynchronous framework itself (like [trio](https://github.com/python-trio/trio)).  
+   Archived Jun 15, 2026
    MIT License.
+* [asyncgui/asynctkinter2](https://github.com/asyncgui/asynctkinter2) ([on PyPi](https://pypi.org/project/asynctkinter2/)) - successor of asynctkinter.
 
 The latter two projects use old `asyncio` code (from before `async`/`await` syntax addition):
 
