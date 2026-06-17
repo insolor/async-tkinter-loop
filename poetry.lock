@@ -1343,4 +1343,4 @@ examples = ["Pillow", "customtkinter", "httpx"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "a536467d2615bf58cae786ff106409312e1c093a060fec580df5ac874177708d"
+content-hash = "40d20c89312b9b1b261976a6d06b6c4627bc53168ffbd03030c6de48f15531ed"
