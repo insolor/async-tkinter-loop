@@ -26,7 +26,8 @@ async def main_loop(root: tk.Tk) -> None:
         except tk.TclError:
             break
 
-        await asyncio.sleep(0.01)
+        interval_ms = tk._tkinter.getbusywaitinterval()
+        await asyncio.sleep(interval_ms / 1000)
 
 
 def get_event_loop() -> asyncio.AbstractEventLoop:
