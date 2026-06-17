@@ -53,6 +53,9 @@ jobs:
     - name: Install dependencies
       run: poetry install --without docs
 
+    - name: Check formatting with ruff
+      run: poetry run ruff format . --check
+
     - name: Lint with ruff
       run: poetry run ruff check . --statistics
 

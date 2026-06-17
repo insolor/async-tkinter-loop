@@ -53,6 +53,7 @@ ignore = [
     "D",  # Warning about docstrings are suppressed for now
     "ANN002",
     "ANN003",
+    "COM812",  # Conflicts with the formatter
 ]
 fixable = ["ALL"]
 
