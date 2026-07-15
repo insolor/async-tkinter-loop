@@ -32,7 +32,7 @@ pip install async-tkinter-loop
 ```
 or
 ```
-pip install async-tkinter-loop[examples]
+pip install "async-tkinter-loop[examples]"
 ```
 
 - `[examples]` part is needed to install optional dependencies (such as `httpx` and `pillow`) to run some of the
