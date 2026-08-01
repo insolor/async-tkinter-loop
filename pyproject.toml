@@ -54,6 +54,7 @@ ignore = [
     "ANN002",
     "ANN003",
     "COM812",  # Conflicts with the formatter
+    "CPY001",
 ]
 fixable = ["ALL"]
 
