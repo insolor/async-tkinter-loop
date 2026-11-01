@@ -667,33 +667,33 @@ pyyaml = ">=5.1"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.7.7"
+version = "9.8.0"
 description = "Documentation that simply works"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.11"
 groups = ["docs"]
 files = [
-    {file = "mkdocs_material-9.7.7-py3-none-any.whl", hash = "sha256:8ea9bb1737a5b524a5f9dcf2e1b4ebda8274ae3008aa7845720a97083bef708f"},
-    {file = "mkdocs_material-9.7.7.tar.gz", hash = "sha256:c0649c065b1b0512d60aad8c10f947f8e455284475239b364b610f2deb4d0855"},
+    {file = "mkdocs_material-9.8.0-py3-none-any.whl", hash = "sha256:19304a7263c5700428227122b3b2699aa73f432c9de8816876adaec7d7293ce3"},
+    {file = "mkdocs_material-9.8.0.tar.gz", hash = "sha256:1ed4c5edaf405a3fb62e55288b8fdff592971729361548b1ffa757bf9849fb81"},
 ]
 
 [package.dependencies]
 babel = ">=2.10"
 backrefs = ">=5.7.post1"
 colorama = ">=0.4"
-jinja2 = ">=3.1"
-markdown = ">=3.2"
+jinja2 = ">=3.1.6"
+markdown = ">=3.8.1"
 mkdocs = ">=1.6,<2"
 mkdocs-material-extensions = ">=1.3"
 paginate = ">=0.5"
-pygments = ">=2.16"
-pymdown-extensions = ">=10.2"
-requests = ">=2.30"
+pygments = ">=2.20.0"
+pymdown-extensions = ">=11.0.1"
+requests = ">=2.33.0"
 
 [package.extras]
-git = ["mkdocs-git-committers-plugin-2 (>=1.1)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4)"]
-imaging = ["cairosvg (>=2.6)", "pillow (>=10.2)"]
-recommended = ["mkdocs-minify-plugin (>=0.7)", "mkdocs-redirects (>=1.2)", "mkdocs-rss-plugin (>=1.6)"]
+git = ["gitpython (>=3.2.1)", "mkdocs-git-committers-plugin-2 (>=1.1)", "mkdocs-git-revision-date-localized-plugin (>=1.2.4)"]
+imaging = ["cairosvg (>=2.9.1)", "pillow (>=13.0.0)"]
+recommended = ["mkdocs-minify-plugin (>=0.7)"]
 
 [[package]]
 name = "mkdocs-material-extensions"
@@ -709,14 +709,14 @@ files = [
 
 [[package]]
 name = "mkdocstrings"
-version = "1.0.6"
+version = "1.0.8"
 description = "Automatic documentation from sources, for MkDocs."
 optional = false
-python-versions = ">=3.10"
+python-versions = ">=3.11"
 groups = ["docs"]
 files = [
-    {file = "mkdocstrings-1.0.6-py3-none-any.whl", hash = "sha256:2703708697487d1b6d6d7b412e176fa436edf120c1bf81dc9e126b12d00893c7"},
-    {file = "mkdocstrings-1.0.6.tar.gz", hash = "sha256:a0b8c2bdd29a6416c80d717aa369bbf7831946bd9f23c2a66db1b1dbe7693dbd"},
+    {file = "mkdocstrings-1.0.8-py3-none-any.whl", hash = "sha256:4b03ed2b863009f1153f0d04aacb22a85b92afc28a0636d85717c92eecca638c"},
+    {file = "mkdocstrings-1.0.8.tar.gz", hash = "sha256:b50fc326230906425c82ee9ec59b80e5db00892b2b593d4d0b841a0d4acf537b"},
 ]
 
 [package.dependencies]
@@ -924,14 +924,14 @@ files = [
 
 [[package]]
 name = "pygments"
-version = "2.18.0"
+version = "2.21.0"
 description = "Pygments is a syntax highlighting package written in Python."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["dev", "docs"]
 files = [
-    {file = "pygments-2.18.0-py3-none-any.whl", hash = "sha256:b8e6aca0523f3ab76fee51799c488e38782ac06eafcf95e7ba832985c8e7b13a"},
-    {file = "pygments-2.18.0.tar.gz", hash = "sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"},
+    {file = "pygments-2.21.0-py3-none-any.whl", hash = "sha256:2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"},
+    {file = "pygments-2.21.0.tar.gz", hash = "sha256:610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"},
 ]
 
 [package.extras]
