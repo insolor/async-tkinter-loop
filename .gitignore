@@ -2,6 +2,7 @@
 *.egg-info
 .idea
 dist
+site/
 *.pyc
 .coverage
 htmlcov

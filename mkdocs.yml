@@ -2,7 +2,7 @@ site_name: Async-tkinter-loop documentation
 
 theme:
   name: "material"
-  custom_dir: overrides
+  custom_dir: .overrides
 
 plugins:
   - mkdocstrings
@@ -26,5 +26,5 @@ nav:
 
 extra:
   analytics:
-    provider: yandex-metrika
-    property: 94803377
+    provider: goat-counter
+    property: insolor
