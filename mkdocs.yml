@@ -27,4 +27,4 @@ nav:
 extra:
   analytics:
     provider: goat-counter
-    property: insolor
+    property: async-tkinter-loop
