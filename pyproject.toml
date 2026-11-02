@@ -12,7 +12,6 @@ keywords = ["tkinter", "async", "async-await", "asyncio", "aiohttp"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Operating System :: OS Independent",
-    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
